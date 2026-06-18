@@ -931,7 +931,6 @@ function initNeuron3D() {
             });
         }
     });
-    });
 }
 
 // Interactive Learning Orchestrator
