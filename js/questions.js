@@ -935,8 +935,7 @@ const questions = [
     "correct": "abcd"
   },
   {
-    "question": "Fuzzify the raw input data for a person of 45 years old (see diagram). What are the membership values (μ) for each fuzzy set?",
-    "image": "imageQ1.png",
+    "question": "For a person of 45 years old, consider the following fuzzy sets:\n- young: 1.0 up to 20, ramps down to 0.0 at 30\n- adult: ramps up from 20 to 30, flat at 1.0 from 30 to 50, then drops to 0.0\n- middle-age: ramps up from 40 to 55, then ramps down to 60 (value at 45 is 0.4)\n- old: 0.0 up to 50, ramps up to 60\nWhat are the membership values (μ) for each fuzzy set?",
     "answers": [
       "μ_young = 0.0, μ_adult = 1.0, μ_middle‐age = 0.4, μ_old = 0.0",
       "μ_young = 0.0, μ_adult = 0.8, μ_middle‐age = 0.2, μ_old = 0.0",
@@ -960,8 +959,7 @@ const questions = [
   // 2024 SUBJECT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
 
   {
-    "question": "Consider Figure 1, which represents the fuzzy classes for a person’s age. After fuzzifying the raw input data for a 35-year-old, we obtain the value:",
-    "image": "imageQ2.png",
+    "question": "Consider fuzzy classes for a person’s age defined as follows:\n- young: 1.0 up to 20, ramps down to 0.0 at 30\n- adult: ramps up from 20 to 30, flat at 1.0 from 30 to 40, ramps down to 0.0 at 50\n- middle-age: ramps up from 40 to 50, ramps down to 60\n- old: ramps up from 50 to 60, flat at 1.0 from 60 onwards\nAfter fuzzifying the raw input data for a 35-year-old, we obtain the value:",
     "answers": [
       "μ_young(35) = 0.6; μ_adult(35) = 1; μ_middle_age(35) = 0.3; μ_old(35) = 0",
       "μ_young(35) = 0; μ_adult(35) = 1; μ_middle_age(35) = 0; μ_old(35) = 0",
@@ -983,8 +981,7 @@ const questions = [
     "correct": "c"
   },
   {
-    "question": "Consider two individuals (represented as permutations) of size 9 and apply an order crossover to them. What is the proper result if the cut points are after the 3rd and 6th position? (Select one or more. Parents are in the image)",
-    "image": "imageQ3.png",
+    "question": "Consider two individuals (represented as permutations) of size 9: Parents are P1 = [1, 4, 6, 2, 3, 8, 5, 7, 9] and P2 = [2, 1, 9, 6, 5, 4, 7, 8, 3]. Apply an order crossover to them (copying the middle section and filling from the beginning of the other parent). What is the proper result if the cut points are after the 3rd and 6th position? (Select one or more)",
     "answers": [
       "[1, 9, 6, 8, 2, 3, 5, 4, 7] and [1, 2, 3, 5, 4, 6, 8, 7, 9]",
       "[1, 9, 8, 2, 3, 5, 6, 4, 7] and [1, 2, 6, 5, 4, 3, 8, 7, 9]",
@@ -1014,8 +1011,7 @@ const questions = [
     "correct": "abc"
   },
   {
-    "question": "In what order during a BFS search will the nodes from the following tree be visited",
-    "image": "imageQ4.png",
+    "question": "In a Binary Search Tree with root 50, left child 17 (which has children 12 and 23), right child 72 (which has children 54 and 76), where 12 has children 9 and 14, 23 has child 19, and 54 has child 67, in what order during a BFS search will the nodes be visited?",
     "answers": [
       "50, 17, 72, 12, 23, 54, 76, 9, 14, 19, 67",
       "50, 72, 17, 76, 54, 23, 12, 64, 19, 14, 9",
@@ -1097,8 +1093,7 @@ const questions = [
     "correct": "bc"
   },
   {
-    "question": "Consider the fuzzy classes described by the following diagram. Compute the membership degree of value 10 to both classes (red and green).",
-    "image": "imageQ5.png",
+    "question": "Consider two fuzzy classes: a red class described as triangular from 2 to 14 peaking at 8, and a green class described as triangular from 8 to 22 peaking at 15. If we evaluate at input x = 0 (which lies completely outside both supports), what is the membership degree to both classes (red and green)?",
     "answers": [
       "μ_red(10) = 0.66 and μ_green(10) = 2.85",
       "μ_red(10) = 0.25 and μ_green(10) = 0.75",
@@ -1323,7 +1318,48 @@ const questions = [
     ],
     "correct": "c"
   },
+  {
+    "question": "Consider fuzzy classes for a person’s age defined as follows: young (1.0 up to 20, ramps down to 0.0 at 30), adult (ramps up from 20 to 30, flat from 30 to 40, ramps down to 50), middle-age (ramps up from 40 to 50, ramps down to 60), and old (ramps up from 50 to 60). After fuzzifying the raw input data for a 45 years old person, we obtain the value:",
+    "answers": [
+      "μ_young(45) = 0.6; μ_adult(45) = 1; μ_middle_age(45) = 0.3; μ_old(45) = 0.",
+      "μ_young(45) = 0; μ_adult(45) = 1; μ_middle_age(45) = 0.5; μ_old(45) = 0.",
+      "μ_young(45) = 0; μ_adult(45) = 0.5; μ_middle_age(45) = 0.5; μ_old(45) = 0.",
+      "None of the above."
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "In a Search Strategies algorithm with a tree-based structure, the evaluation function:",
+    "answers": [
+      "Is used for estimating the cost of a solution through a node (state).",
+      "It guides the search.",
+      "It is the sum between the cost of a solution path from the initial node (state) to node (state) and the cost of a solution path from node (state) to the final node (state).",
+      "None of the above."
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "For clustering, is it true that:",
+    "answers": [
+      "It uses a labeled database.",
+      "It is another name for unsupervised learning.",
+      "It is a one-step process - testing.",
+      "None of the above applies."
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "Which statement accurately describes the database used in training with indirect experience?",
+    "answers": [
+      "It involves paired input/output data.",
+      "It is based on useful feedback for some objective function.",
+      "It relies on independent data with annotated content.",
+      "None of the above."
+    ],
+    "correct": "b"
+  },
 ];
+
 
 // Total questions for reference
 const TOTAL_QUESTIONS = questions.length;

@@ -41,24 +41,24 @@ Go to the "Rules" tab and set:
 5. Copy the configuration object
 
 ### 5. Setup Local Configuration
-1. Copy `config.example.js` to `config.js`
+1. Copy `js/config.example.js` to `js/config.js`
 2. Replace the placeholder values with your Firebase configuration
 3. Save the file
 
 ```bash
-cp config.example.js config.js
+cp js/config.example.js js/config.js
 ```
 
-Then edit `config.js` with your actual Firebase credentials.
+Then edit `js/config.js` with your actual Firebase credentials.
 
 ## Security Notes
-- `config.js` is gitignored and will not be committed
+- `js/config.js` is gitignored and will not be committed
 - Keep your API keys secure
 - For production, consider using Firebase security rules
 - The current setup is for development/testing
 
 ## Troubleshooting
-- Make sure `config.js` exists and has valid Firebase configuration
+- Make sure `js/config.js` exists and has valid Firebase configuration
 - Check browser console for any Firebase errors
 - Verify database rules allow read/write access
 - Ensure your database URL matches your region 

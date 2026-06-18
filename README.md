@@ -40,10 +40,10 @@ If you want to host your own version, follow these simple deployment steps using
    - Register your app and copy the configuration object
 
 3. **Add Firebase Config to Your Project**
-   - **IMPORTANT**: Replace the placeholder API keys in `user-counter.js` file (lines 6-15) with your real Firebase configuration
-   - In the file `user-counter.js`, find the `fallbackConfig` object and replace all placeholder values:
+   - **IMPORTANT**: Replace the placeholder API keys in `js/user-counter.js` file (lines 6-15) with your real Firebase configuration
+   - In the file `js/user-counter.js`, find the `fallbackConfig` object and replace all placeholder values:
    ```javascript
-   // In user-counter.js - Replace these placeholder values:
+   // In js/user-counter.js - Replace these placeholder values:
    const fallbackConfig = {
      apiKey: "YOUR_API_KEY_HERE", // ← Replace with your real API key
      authDomain: "your-project.firebaseapp.com", // ← Replace with your domain
@@ -59,7 +59,7 @@ If you want to host your own version, follow these simple deployment steps using
 4. **Important Security Notes**
    - **Before pushing to GitHub**: Remove any fallback/demo API keys from the code
    - Set Firebase config to default/empty values in public repository
-   - Add `firebase-config.js` to your `.gitignore` file
+   - Add `js/config.js` to your `.gitignore` file
    - Use Netlify environment variables for production deployment
 
 5. **Push to Git**
