@@ -251,12 +251,12 @@ function getTopicContentHTML(topicKey, pageIndex = 0) {
                 <h2>Polynomial Overfitting & Complexity</h2>
                 <p>Increasing model complexity (polynomial degree) reduces training error, but can lead to <strong>overfitting</strong> where the model fits noise in the training set and fails to generalize to validation data.</p>
                 
-                <div class="playground-layout" style="display: grid; grid-template-columns: 1fr; gap: 20px;">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                        <div class="data-graph-container" style="height: 220px; position: relative;">
+                <div class="playground-layout" style="display: flex; flex-direction: column; gap: 20px;">
+                    <div style="display: flex; flex-wrap: wrap; gap: 15px; width: 100%;">
+                        <div class="data-graph-container" style="flex: 1 1 280px; height: 220px; position: relative;">
                             <canvas id="poly-chart-canvas"></canvas>
                         </div>
-                        <div class="data-graph-container" style="height: 220px; position: relative;">
+                        <div class="data-graph-container" style="flex: 1 1 280px; height: 220px; position: relative;">
                             <canvas id="poly-error-canvas"></canvas>
                         </div>
                     </div>

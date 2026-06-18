@@ -918,16 +918,10 @@ function initNeuron3D() {
             elem.addEventListener('mouseenter', () => {
                 titleElem.textContent = mappings[label].title;
                 descElem.innerHTML = mappings[label].desc;
-                
-                // Add temporary glowing outline by scale
-                elem.style.transform += " scale(1.05)";
             });
             elem.addEventListener('mouseleave', () => {
                 titleElem.textContent = "Hover over a neuron part above...";
                 descElem.innerHTML = "Hover over the 3D model components (Dendrites, Soma, Axon, etc.) to decrypt their biological and artificial mapping.";
-                
-                // Revert scale
-                elem.style.transform = elem.style.transform.replace(" scale(1.05)", "");
             });
         }
     });
@@ -1572,7 +1566,16 @@ function initPolyOverfitDemo() {
                 plugins: { legend: { labels: { color: '#e0e0e0' } } },
                 scales: {
                     x: { title: { display: true, text: 'Complexity (Degree)', color: '#aaa' }, ticks: { color: '#aaa' }, grid: { color: '#222' } },
-                    y: { type: 'logarithmic', title: { display: true, text: 'Loss', color: '#aaa' }, ticks: { color: '#aaa' }, grid: { color: '#222' } }
+                    y: {
+                        title: { display: true, text: 'Loss', color: '#aaa' },
+                        ticks: {
+                            color: '#aaa',
+                            callback: function(value) {
+                                return value.toFixed(2);
+                            }
+                        },
+                        grid: { color: '#222' }
+                    }
                 }
             }
         });

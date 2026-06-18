@@ -2271,6 +2271,10 @@ h1, h2, h3, h4 {
     box-shadow: 0 0 25px var(--secondary) !important;
 }
 
+.soma-body:hover {
+    transform: scale(1.08);
+}
+
 /* Dendrites (Input branches) */
 .dendrite-branch {
     position: absolute;
@@ -2279,6 +2283,7 @@ h1, h2, h3, h4 {
     align-items: center;
     transform-origin: right center;
     cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
 .dendrite-line {
@@ -2308,14 +2313,26 @@ h1, h2, h3, h4 {
     --rotate-y: -20deg;
 }
 
+.d-1:hover {
+    transform: translateX(-110px) translateY(-50px) translateZ(40px) rotateY(-20deg) rotateZ(15deg) scale(1.05) !important;
+}
+
 .d-2 {
     transform: translateX(-110px) translateY(0px) translateZ(-40px) rotateY(20deg) rotateZ(0deg);
     --rotate-y: 20deg;
 }
 
+.d-2:hover {
+    transform: translateX(-110px) translateY(0px) translateZ(-40px) rotateY(20deg) rotateZ(0deg) scale(1.05) !important;
+}
+
 .d-3 {
     transform: translateX(-110px) translateY(50px) translateZ(30px) rotateY(-15deg) rotateZ(-15deg);
     --rotate-y: -15deg;
+}
+
+.d-3:hover {
+    transform: translateX(-110px) translateY(50px) translateZ(30px) rotateY(-15deg) rotateZ(-15deg) scale(1.05) !important;
 }
 
 .dendrite-branch:hover .dendrite-line {
@@ -2333,6 +2350,11 @@ h1, h2, h3, h4 {
     transform-style: preserve-3d;
     cursor: pointer;
     z-index: 4;
+    transition: transform 0.3s ease;
+}
+
+.axon-branch:hover {
+    transform: translateX(50px) rotateY(10deg) scale(1.05) !important;
 }
 
 .axon-tube {
@@ -2390,6 +2412,13 @@ h1, h2, h3, h4 {
     box-shadow: 0 0 12px var(--secondary);
     animation: corePulse 1s infinite alternate;
     cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.terminal-node:hover {
+    transform: translateX(270px) translateZ(10px) scale(1.2) !important;
+    background: var(--text) !important;
+    box-shadow: 0 0 25px var(--secondary) !important;
 }
 
 .terminal-tag {
@@ -2405,11 +2434,6 @@ h1, h2, h3, h4 {
     white-space: nowrap;
     box-shadow: 0 0 8px rgba(82, 244, 123, 0.3);
     pointer-events: none;
-}
-
-.terminal-node:hover {
-    background: var(--text) !important;
-    box-shadow: 0 0 25px var(--secondary) !important;
 }
 
 /* Details Box below 3D scene */
