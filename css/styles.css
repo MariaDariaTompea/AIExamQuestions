@@ -2309,30 +2309,30 @@ h1, h2, h3, h4 {
 }
 
 .d-1 {
-    transform: translateX(-50px) translateY(-50px) translateZ(40px) rotateY(-20deg) rotateZ(15deg);
+    transform: translateX(-40px) translateY(-15px) translateZ(40px) rotateY(-20deg) rotateZ(20deg);
     --rotate-y: -20deg;
 }
 
 .d-1:hover {
-    transform: translateX(-50px) translateY(-50px) translateZ(40px) rotateY(-20deg) rotateZ(15deg) scale(1.05) !important;
+    transform: translateX(-40px) translateY(-15px) translateZ(40px) rotateY(-20deg) rotateZ(20deg) scale(1.05) !important;
 }
 
 .d-2 {
-    transform: translateX(-50px) translateY(0px) translateZ(-40px) rotateY(20deg) rotateZ(0deg);
+    transform: translateX(-42px) translateY(0px) translateZ(-40px) rotateY(20deg) rotateZ(0deg);
     --rotate-y: 20deg;
 }
 
 .d-2:hover {
-    transform: translateX(-50px) translateY(0px) translateZ(-40px) rotateY(20deg) rotateZ(0deg) scale(1.05) !important;
+    transform: translateX(-42px) translateY(0px) translateZ(-40px) rotateY(20deg) rotateZ(0deg) scale(1.05) !important;
 }
 
 .d-3 {
-    transform: translateX(-50px) translateY(50px) translateZ(30px) rotateY(-15deg) rotateZ(-15deg);
+    transform: translateX(-40px) translateY(15px) translateZ(30px) rotateY(-15deg) rotateZ(-20deg);
     --rotate-y: -15deg;
 }
 
 .d-3:hover {
-    transform: translateX(-50px) translateY(50px) translateZ(30px) rotateY(-15deg) rotateZ(-15deg) scale(1.05) !important;
+    transform: translateX(-40px) translateY(15px) translateZ(30px) rotateY(-15deg) rotateZ(-20deg) scale(1.05) !important;
 }
 
 .dendrite-branch:hover .dendrite-line {
