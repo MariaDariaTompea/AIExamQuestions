@@ -5,9 +5,9 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background-color: #f8fafc;
-    color: #334155;
+    font-family: 'Orbitron', 'Inter', sans-serif;
+    background-color: #050505;
+    color: #e0e0e0;
     line-height: 1.6;
     min-height: 100vh;
 }
@@ -22,7 +22,7 @@ body {
     text-align: center;
     margin-bottom: 40px;
     padding-bottom: 20px;
-    border-bottom: 2px solid #e2e8f0;
+    border-bottom: 2px solid #333333;
     position: relative;
 }
 
@@ -35,17 +35,17 @@ body {
     align-items: center;
     gap: 6px;
     font-size: 0.875rem;
-    color: #64748b;
+    color: #aaaaaa;
 }
 
 .users-count {
-    color: #16a34a;
+    color: #ff00ff;
     font-weight: 600;
     font-size: 0.875rem;
 }
 
 .users-label {
-    color: #64748b;
+    color: #aaaaaa;
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -54,13 +54,13 @@ body {
 .title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #1e293b;
+    color: #00ffff;
     margin-bottom: 8px;
 }
 
 .subtitle {
     font-size: 1.1rem;
-    color: #64748b;
+    color: #aaaaaa;
     font-weight: 400;
 }
 
@@ -76,11 +76,11 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    background: #050505;
+    border: 1px solid #333333;
     border-radius: 8px;
     padding: 8px 12px;
-    font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+    font-family: 'Orbitron', 'Inter', sans-serif;
 }
 
 .timer-icon {
@@ -90,7 +90,7 @@ body {
 .timer-text {
     font-size: 1rem;
     font-weight: 600;
-    color: #3730a3;
+    color: #00ffff;
     min-width: 50px;
     text-align: center;
 }
@@ -113,12 +113,12 @@ body {
 }
 
 .dashboard-card {
-    background: white;
+    background: #121212;
     border-radius: 16px;
     padding: 32px;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0, 255, 255, 0.1);
+    border: 1px solid #333333;
     transition: all 0.3s ease;
     cursor: pointer;
     position: relative;
@@ -127,23 +127,23 @@ body {
 
 .dashboard-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 25px rgba(0, 255, 255, 0.2);
 }
 
 .dashboard-card.primary {
-    border-top: 4px solid #3730a3;
+    border-top: 4px solid #00ffff;
 }
 
 .dashboard-card.secondary {
-    border-top: 4px solid #16a34a;
+    border-top: 4px solid #ff00ff;
 }
 
 .dashboard-card.tertiary {
-    border-top: 4px solid #dc2626;
+    border-top: 4px solid #ff003c;
 }
 
 .dashboard-card.quaternary {
-    border-top: 4px solid #7c3aed;
+    border-top: 4px solid #b900ff;
 }
 
 .dashboard-card.rankings {
@@ -161,20 +161,21 @@ body {
 }
 
 .dashboard-card h3 {
+    text-shadow: 0 0 5px currentColor;
     font-size: 1.5rem;
     font-weight: 700;
-    color: #1e293b;
+    color: #00ffff;
     margin-bottom: 12px;
 }
 
 .dashboard-card p {
-    color: #64748b;
+    color: #aaaaaa;
     margin-bottom: 24px;
     line-height: 1.5;
 }
 
 .card-btn {
-    background: #3730a3;
+    background: #00ffff;
     color: white;
     border: none;
     border-radius: 8px;
@@ -185,20 +186,21 @@ body {
 }
 
 .card-btn:hover {
-    background: #312e81;
+    background: #00cccc;
 }
 
 /* History Section */
 .history-section {
-    background: white;
+    background: #121212;
     border-radius: 16px;
     padding: 32px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0, 255, 255, 0.1);
+    border: 1px solid #333333;
 }
 
 .history-section h2 {
-    color: #1e293b;
+    text-shadow: 0 0 5px currentColor;
+    color: #00ffff;
     margin-bottom: 24px;
     font-size: 1.5rem;
 }
@@ -208,8 +210,8 @@ body {
 }
 
 .history-item {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    background: #050505;
+    border: 1px solid #333333;
     border-radius: 12px;
     padding: 20px;
     margin-bottom: 12px;
@@ -219,12 +221,13 @@ body {
 }
 
 .history-info h4 {
-    color: #1e293b;
+    text-shadow: 0 0 5px currentColor;
+    color: #00ffff;
     margin-bottom: 4px;
 }
 
 .history-info p {
-    color: #64748b;
+    color: #aaaaaa;
     font-size: 0.875rem;
 }
 
@@ -235,12 +238,12 @@ body {
 .score-display {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #3730a3;
+    color: #00ffff;
 }
 
 .score-details {
     font-size: 0.875rem;
-    color: #64748b;
+    color: #aaaaaa;
 }
 
 /* Learning Styles */
@@ -256,56 +259,59 @@ body {
 }
 
 .topic-tab {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    background: #050505;
+    border: 1px solid #333333;
     border-radius: 8px;
     padding: 12px 20px;
     cursor: pointer;
     transition: all 0.2s ease;
     font-weight: 600;
-    color: #64748b;
+    color: #aaaaaa;
 }
 
 .topic-tab:hover {
-    background: #e2e8f0;
+    background: #333333;
 }
 
 .topic-tab.active {
-    background: #3730a3;
+    background: #00ffff;
     color: white;
-    border-color: #3730a3;
+    border-color: #00ffff;
 }
 
 .learning-content {
-    background: white;
+    background: #121212;
     border-radius: 16px;
     padding: 40px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0, 255, 255, 0.1);
+    border: 1px solid #333333;
     margin-bottom: 32px;
     min-height: 400px;
 }
 
 .topic-card h2 {
-    color: #1e293b;
+    text-shadow: 0 0 5px currentColor;
+    color: #00ffff;
     margin-bottom: 20px;
     font-size: 1.75rem;
 }
 
 .topic-card h3 {
-    color: #3730a3;
+    text-shadow: 0 0 5px currentColor;
+    color: #00ffff;
     margin: 24px 0 12px 0;
     font-size: 1.25rem;
 }
 
 .topic-card h4 {
-    color: #1e293b;
+    text-shadow: 0 0 5px currentColor;
+    color: #00ffff;
     margin: 20px 0 12px 0;
     font-size: 1.1rem;
 }
 
 .topic-card p {
-    color: #475569;
+    color: #bbbbbb;
     line-height: 1.6;
     margin-bottom: 16px;
 }
@@ -316,7 +322,7 @@ body {
 }
 
 .topic-card li {
-    color: #475569;
+    color: #bbbbbb;
     margin-bottom: 8px;
     line-height: 1.5;
 }
@@ -330,6 +336,7 @@ body {
 }
 
 .concept-box h4 {
+    text-shadow: 0 0 5px currentColor;
     color: #0369a1;
     margin-bottom: 12px;
     font-size: 1.1rem;
@@ -337,14 +344,15 @@ body {
 
 .example-box {
     background: #f0fdf4;
-    border: 1px solid #16a34a;
+    border: 1px solid #ff00ff;
     border-radius: 12px;
     padding: 20px;
     margin: 20px 0;
 }
 
 .example-box h4 {
-    color: #15803d;
+    text-shadow: 0 0 5px currentColor;
+    color: #cc00cc;
     margin-bottom: 12px;
     font-size: 1.1rem;
 }
@@ -358,7 +366,8 @@ body {
 }
 
 .warning-box h4 {
-    color: #dc2626;
+    text-shadow: 0 0 5px currentColor;
+    color: #ff003c;
     margin-bottom: 12px;
     font-size: 1.1rem;
 }
@@ -376,36 +385,36 @@ body {
 }
 
 .stat-card {
-    background: white;
+    background: #121212;
     border-radius: 12px;
     padding: 20px;
     text-align: center;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 255, 255, 0.1);
+    border: 1px solid #333333;
     transition: box-shadow 0.2s ease;
 }
 
 .stat-card:hover {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 255, 255, 0.1);
 }
 
 .stat-number {
     font-size: 2rem;
     font-weight: 700;
-    color: #3730a3;
+    color: #00ffff;
     margin-bottom: 4px;
 }
 
 .stat-label {
     font-size: 0.875rem;
-    color: #64748b;
+    color: #aaaaaa;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
 .progress-container {
-    background: #e2e8f0;
+    background: #333333;
     border-radius: 8px;
     height: 8px;
     margin-bottom: 40px;
@@ -413,18 +422,18 @@ body {
 }
 
 .progress-bar {
-    background: linear-gradient(90deg, #3730a3, #4f46e5);
+    background: linear-gradient(90deg, #00ffff, #00ffff);
     height: 100%;
     border-radius: 8px;
     transition: width 0.3s ease;
 }
 
 .question-container {
-    background: white;
+    background: #121212;
     border-radius: 16px;
     padding: 40px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 255, 255, 0.1);
+    border: 1px solid #333333;
     margin-bottom: 20px;
 }
 
@@ -437,7 +446,7 @@ body {
 }
 
 .question-number {
-    background: #3730a3;
+    background: #00ffff;
     color: white;
     border-radius: 8px;
     width: 32px;
@@ -453,7 +462,7 @@ body {
 .question-text {
     font-size: 1.25rem;
     font-weight: 600;
-    color: #1e293b;
+    color: #00ffff;
     flex: 1;
 }
 
@@ -462,8 +471,8 @@ body {
 }
 
 .answer-option {
-    background: #f8fafc;
-    border: 2px solid #e2e8f0;
+    background: #050505;
+    border: 2px solid #333333;
     border-radius: 12px;
     padding: 16px 20px;
     margin-bottom: 12px;
@@ -474,30 +483,30 @@ body {
 }
 
 .answer-option:hover {
-    border-color: #cbd5e1;
+    border-color: #555555;
     background: #f1f5f9;
 }
 
 .answer-option.selected {
     background: #ede9fe;
-    border-color: #3730a3;
-    color: #3730a3;
+    border-color: #00ffff;
+    color: #00ffff;
 }
 
 .answer-option.correct {
     background: #dcfce7;
-    border-color: #16a34a;
-    color: #15803d;
+    border-color: #ff00ff;
+    color: #cc00cc;
 }
 
 .answer-option.wrong {
     background: #fef2f2;
-    border-color: #dc2626;
-    color: #dc2626;
+    border-color: #ff003c;
+    color: #ff003c;
 }
 
 .answer-label {
-    background: #64748b;
+    background: #aaaaaa;
     color: white;
     border-radius: 6px;
     width: 24px;
@@ -512,15 +521,15 @@ body {
 }
 
 .answer-option.selected .answer-label {
-    background: #3730a3;
+    background: #00ffff;
 }
 
 .answer-option.correct .answer-label {
-    background: #16a34a;
+    background: #ff00ff;
 }
 
 .answer-option.wrong .answer-label {
-    background: #dc2626;
+    background: #ff003c;
 }
 
 .answer-text {
@@ -530,7 +539,7 @@ body {
 
 /* Buttons */
 .submit-btn {
-    background: #3730a3;
+    background: #00ffff;
     color: white;
     border: none;
     border-radius: 12px;
@@ -543,7 +552,7 @@ body {
 }
 
 .submit-btn:hover:not(:disabled) {
-    background: #312e81;
+    background: #00cccc;
     transform: translateY(-1px);
 }
 
@@ -554,7 +563,7 @@ body {
 }
 
 .primary-btn {
-    background: #3730a3;
+    background: #00ffff;
     color: white;
     border: none;
     border-radius: 12px;
@@ -566,7 +575,7 @@ body {
 }
 
 .primary-btn:hover {
-    background: #312e81;
+    background: #00cccc;
     transform: translateY(-1px);
 }
 
@@ -580,8 +589,8 @@ body {
 
 .back-btn {
     background: #f1f5f9;
-    color: #3730a3;
-    border: 1px solid #e2e8f0;
+    color: #00ffff;
+    border: 1px solid #333333;
     border-radius: 8px;
     padding: 12px 20px;
     font-weight: 600;
@@ -590,13 +599,13 @@ body {
 }
 
 .back-btn:hover {
-    background: #e2e8f0;
+    background: #333333;
 }
 
 .finish-btn {
-    background: #dc2626;
+    background: #ff003c;
     color: white;
-    border: 1px solid #dc2626;
+    border: 1px solid #ff003c;
     border-radius: 8px;
     padding: 12px 20px;
     font-weight: 600;
@@ -605,14 +614,14 @@ body {
 }
 
 .finish-btn:hover {
-    background: #b91c1c;
-    border-color: #b91c1c;
+    background: #cc0030;
+    border-color: #cc0030;
 }
 
 .restart-btn {
     background: #f1f5f9;
-    color: #3730a3;
-    border: 2px solid #3730a3;
+    color: #00ffff;
+    border: 2px solid #00ffff;
     border-radius: 12px;
     padding: 16px 32px;
     font-size: 1rem;
@@ -622,7 +631,7 @@ body {
 }
 
 .restart-btn:hover {
-    background: #3730a3;
+    background: #00ffff;
     color: white;
 }
 
@@ -634,7 +643,7 @@ body {
 }
 
 .review-btn {
-    background: #7c3aed;
+    background: #b900ff;
     color: white;
     border: none;
     border-radius: 12px;
@@ -647,7 +656,7 @@ body {
 }
 
 .review-btn:hover {
-    background: #6d28d9;
+    background: #9000cc;
 }
 
 .review-btn:disabled {
@@ -657,18 +666,19 @@ body {
 
 /* Final Results */
 .final-results {
-    background: white;
+    background: #121212;
     border-radius: 16px;
     padding: 48px;
     text-align: center;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 255, 255, 0.1);
+    border: 1px solid #333333;
 }
 
 .final-results h2 {
+    text-shadow: 0 0 5px currentColor;
     font-size: 2rem;
     font-weight: 700;
-    color: #1e293b;
+    color: #00ffff;
     margin-bottom: 16px;
 }
 
@@ -682,8 +692,8 @@ body {
 .score-item {
     padding: 20px;
     border-radius: 12px;
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    background: #050505;
+    border: 1px solid #333333;
 }
 
 .score-value {
@@ -692,13 +702,13 @@ body {
     margin-bottom: 4px;
 }
 
-.score-value.total { color: #3730a3; }
-.score-value.correct { color: #16a34a; }
-.score-value.wrong { color: #dc2626; }
+.score-value.total { color: #00ffff; }
+.score-value.correct { color: #ff00ff; }
+.score-value.wrong { color: #ff003c; }
 
 .score-label {
     font-size: 0.875rem;
-    color: #64748b;
+    color: #aaaaaa;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-weight: 500;
@@ -706,7 +716,7 @@ body {
 
 .performance-message {
     font-size: 1.125rem;
-    color: #475569;
+    color: #bbbbbb;
     margin: 24px 0;
     font-weight: 500;
 }
@@ -717,23 +727,24 @@ body {
 }
 
 .overall-score-card {
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    border: 2px solid #cbd5e1;
+    background: linear-gradient(135deg, #050505 0%, #333333 100%);
+    border: 2px solid #555555;
     border-radius: 16px;
     padding: 2rem;
     text-align: center;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 25px rgba(0, 255, 255, 0.1);
 }
 
 .overall-score-header h3 {
+    text-shadow: 0 0 5px currentColor;
     margin: 0 0 0.5rem 0;
-    color: #1e293b;
+    color: #00ffff;
     font-size: 1.5rem;
     font-weight: 700;
 }
 
 .score-breakdown {
-    color: #64748b;
+    color: #aaaaaa;
     font-size: 0.9rem;
     margin-bottom: 1.5rem;
 }
@@ -748,7 +759,7 @@ body {
 .overall-score-display .score-value {
     font-size: 3rem;
     font-weight: 900;
-    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Orbitron', 'Inter', sans-serif;
     line-height: 1;
 }
 
@@ -767,16 +778,17 @@ body {
 
 /* Performance Analysis */
 .performance-analysis {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    background: #050505;
+    border: 1px solid #333333;
     border-radius: 12px;
     padding: 1.5rem;
     margin: 1.5rem 0;
 }
 
 .performance-analysis h4 {
+    text-shadow: 0 0 5px currentColor;
     margin: 0 0 1rem 0;
-    color: #1e293b;
+    color: #00ffff;
     font-size: 1.25rem;
 }
 
@@ -790,7 +802,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 0;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid #333333;
 }
 
 .metric:last-child {
@@ -798,12 +810,12 @@ body {
 }
 
 .metric-label {
-    color: #64748b;
+    color: #aaaaaa;
     font-weight: 500;
 }
 
 .metric-value {
-    color: #1e293b;
+    color: #00ffff;
     font-weight: 600;
 }
 
@@ -816,8 +828,8 @@ body {
 }
 
 .result-card {
-    background: white;
-    border: 1px solid #e2e8f0;
+    background: #121212;
+    border: 1px solid #333333;
     border-radius: 12px;
     padding: 1.5rem 1rem;
     text-align: center;
@@ -826,7 +838,7 @@ body {
 
 .result-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 255, 255, 0.1);
 }
 
 .result-card.primary {
@@ -836,7 +848,7 @@ body {
 }
 
 .result-card.speed-rating {
-    background: #f8fafc;
+    background: #050505;
     transition: all 0.3s ease;
 }
 
@@ -849,7 +861,7 @@ body {
 
 .result-card .result-label {
     font-size: 0.875rem;
-    color: #64748b;
+    color: #aaaaaa;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-weight: 500;
@@ -937,11 +949,11 @@ body {
     position: fixed;
     top: 20px;
     right: 20px;
-    background: white;
-    border: 1px solid #e2e8f0;
+    background: #121212;
+    border: 1px solid #333333;
     border-radius: 12px;
     padding: 16px 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 255, 255, 0.1);
     transform: translateX(400px);
     transition: transform 0.3s ease;
     z-index: 1000;
@@ -953,13 +965,13 @@ body {
 }
 
 .notification.success {
-    border-left: 4px solid #16a34a;
-    color: #15803d;
+    border-left: 4px solid #ff00ff;
+    color: #cc00cc;
 }
 
 .notification.info {
-    border-left: 4px solid #3730a3;
-    color: #3730a3;
+    border-left: 4px solid #00ffff;
+    color: #00ffff;
 }
 
 .hidden {
@@ -1046,11 +1058,11 @@ body {
 /* Global Rankings Styles */
 .global-rankings-section {
     margin: 2rem 0;
-    background: white;
+    background: #121212;
     border-radius: 16px;
     padding: 1.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 255, 255, 0.1);
+    border: 1px solid #333333;
 }
 
 .rankings-header {
@@ -1063,8 +1075,9 @@ body {
 }
 
 .rankings-header h3 {
+    text-shadow: 0 0 5px currentColor;
     margin: 0;
-    color: #1e293b;
+    color: #00ffff;
     font-size: 1.5rem;
     font-weight: 700;
 }
@@ -1077,7 +1090,7 @@ body {
 .filter-btn {
     padding: 0.5rem 1rem;
     border: 1px solid #d1d5db;
-    background: white;
+    background: #121212;
     border-radius: 8px;
     cursor: pointer;
     font-size: 0.875rem;
@@ -1107,15 +1120,15 @@ body {
     align-items: center;
     gap: 1rem;
     padding: 1rem;
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    background: #050505;
+    border: 1px solid #333333;
     border-radius: 12px;
     transition: all 0.2s ease;
 }
 
 .ranking-item:hover {
     background: #f1f5f9;
-    border-color: #cbd5e1;
+    border-color: #555555;
 }
 
 .ranking-item.current-user {
@@ -1129,7 +1142,7 @@ body {
     font-weight: 700;
     min-width: 2.5rem;
     text-align: center;
-    color: #1e293b;
+    color: #00ffff;
 }
 
 .rank-info {
@@ -1139,14 +1152,14 @@ body {
 
 .rank-name {
     font-weight: 600;
-    color: #1e293b;
+    color: #00ffff;
     font-size: 1rem;
     margin-bottom: 0.25rem;
 }
 
 .rank-stats {
     font-size: 0.875rem;
-    color: #64748b;
+    color: #aaaaaa;
 }
 
 .rank-scores {
@@ -1156,19 +1169,19 @@ body {
 .primary-score {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #1e293b;
+    color: #00ffff;
     margin-bottom: 0.25rem;
 }
 
 .secondary-score {
     font-size: 0.875rem;
-    color: #64748b;
+    color: #aaaaaa;
 }
 
 .no-rankings {
     text-align: center;
     padding: 2rem;
-    color: #64748b;
+    color: #aaaaaa;
 }
 
 .no-rankings p {
@@ -1178,24 +1191,25 @@ body {
 
 /* User Name Dialog Styles */
 .user-name-dialog, .user-settings-dialog {
-    background: white;
+    background: #121212;
     border-radius: 16px;
     padding: 2rem;
     text-align: center;
     max-width: 500px;
     margin: 0 auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px rgba(0, 255, 255, 0.1);
+    border: 1px solid #333333;
 }
 
 .user-name-dialog h2, .user-settings-dialog h2 {
+    text-shadow: 0 0 5px currentColor;
     margin: 0 0 1rem 0;
-    color: #1e293b;
+    color: #00ffff;
     font-size: 1.75rem;
 }
 
 .user-name-dialog p, .user-settings-dialog p {
-    color: #64748b;
+    color: #aaaaaa;
     margin-bottom: 2rem;
     font-size: 1rem;
 }
@@ -1283,7 +1297,7 @@ body {
 }
 
 .btn-secondary {
-    background: #f8fafc;
+    background: #050505;
     color: #374151;
     border: 1px solid #d1d5db;
     padding: 0.75rem 1.5rem;
@@ -1303,7 +1317,7 @@ body {
 }
 
 .btn-danger {
-    background: #dc2626;
+    background: #ff003c;
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -1317,18 +1331,18 @@ body {
 }
 
 .btn-danger:hover {
-    background: #b91c1c;
+    background: #cc0030;
     transform: translateY(-1px);
 }
 
 .card-btn.secondary {
     background: transparent;
-    color: #64748b;
+    color: #aaaaaa;
     border: 1px solid #d1d5db;
 }
 
 .card-btn.secondary:hover {
-    background: #f8fafc;
+    background: #050505;
     color: #374151;
     border-color: #9ca3af;
 }
@@ -1450,7 +1464,7 @@ body {
     display: inline-block;
     width: 20px;
     height: 1px;
-    background: #e2e8f0;
+    background: #333333;
     margin: 0 12px;
     vertical-align: middle;
 }
@@ -1460,7 +1474,8 @@ body {
 }
 
 .contributors h4 {
-    color: #64748b;
+    text-shadow: 0 0 5px currentColor;
+    color: #aaaaaa;
     font-size: 0.875rem;
     font-weight: 600;
     margin: 0 0 1rem 0;
@@ -1481,17 +1496,17 @@ body {
     align-items: center;
     gap: 0.25rem;
     padding: 0.75rem 1rem;
-    background: white;
+    background: #121212;
     border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 255, 255, 0.1);
+    border: 1px solid #333333;
     transition: all 0.2s ease;
 }
 
 .contributor:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-color: #cbd5e1;
+    box-shadow: 0 4px 6px rgba(0, 255, 255, 0.1);
+    border-color: #555555;
 }
 
 .contributor-name {
@@ -1503,7 +1518,7 @@ body {
 .contributor-handle {
     color: #6b7280;
     font-size: 0.75rem;
-    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-family: 'Orbitron', 'Inter', sans-serif;
     background: #f3f4f6;
     padding: 0.125rem 0.375rem;
     border-radius: 4px;
@@ -1520,4 +1535,145 @@ body {
         width: 100%;
         max-width: 200px;
     }
+}/* New Interactive Elements */
+.cyberpunk-card {
+    background-color: #111116;
+    border: 1px solid #333;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
 }
+
+.interactive-diagram, .tree-diagram {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #050505;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    margin: 20px 0;
+}
+
+.network-node, .tree-node {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #fff;
+    border: 2px solid #00ffff;
+    background: #002222;
+    animation: pulseGlow 2s infinite alternate;
+}
+
+.tree-node {
+    width: auto;
+    border-radius: 8px;
+    padding: 10px 15px;
+}
+
+@keyframes pulseGlow {
+    from { box-shadow: 0 0 5px currentColor; }
+    to { box-shadow: 0 0 20px currentColor; }
+}
+
+.input-node { border-color: #00ffff; color: #00ffff; }
+.hidden-node { border-color: #ff00ff; color: #ff00ff; }
+.output-node { border-color: #ff003c; color: #ff003c; }
+
+.network-line {
+    height: 2px;
+    background: #555;
+    flex-grow: 1;
+    margin: 0 10px;
+    position: relative;
+}
+
+.cyber-formula {
+    font-family: monospace;
+    font-size: 1.2rem;
+    color: #00ffff;
+    background: #121212;
+    padding: 15px;
+    border-left: 4px solid #ff00ff;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0,255,255,0.1);
+}
+
+.playground-box {
+    background: #1a1a24;
+    padding: 20px;
+    border: 1px dashed #00ffff;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.cyber-result {
+    margin-top: 15px;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    background: #000;
+    text-align: center;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.data-graph-container {
+    background: #111116;
+    padding: 20px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    margin: 20px 0;
+    max-height: 400px;
+}
+
+/* CSS 3D Tensor */
+.tensor-container {
+    display: flex;
+    justify-content: center;
+    perspective: 800px;
+    margin: 40px 0;
+}
+
+.cube-wrapper {
+    width: 150px;
+    height: 150px;
+    transform-style: preserve-3d;
+    animation: rotateCube 10s infinite linear;
+}
+
+@keyframes rotateCube {
+    from { transform: rotateX(0deg) rotateY(0deg); }
+    to { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+.cube {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+}
+
+.cube-face {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: rgba(0, 255, 255, 0.1);
+    border: 2px solid #00ffff;
+    box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #00ffff;
+    text-shadow: 0 0 5px #00ffff;
+}
+
+.front  { transform: translateZ(75px); }
+.back   { transform: rotateY(180deg) translateZ(75px); }
+.right  { transform: rotateY(90deg) translateZ(75px); }
+.left   { transform: rotateY(-90deg) translateZ(75px); }
+.top    { transform: rotateX(90deg) translateZ(75px); }
+.bottom { transform: rotateX(-90deg) translateZ(75px); }
