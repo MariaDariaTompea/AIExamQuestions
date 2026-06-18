@@ -111,6 +111,12 @@ document.addEventListener('DOMContentLoaded', function () {
         // Update dashboard review card
         updateDashboardReviewCard();
 
+        // Initialize WebCraft theme effects
+        initCursorBlob();
+        initCursorTrails();
+        initTechCanvas();
+        initBootConsole();
+
         notificationManager.info('Welcome to the AI Learning Platform!');
         console.log('App initialized successfully');
     } catch (error) {
@@ -141,7 +147,8 @@ function restoreDashboard() {
     if (!dashboard.querySelector('.dashboard-grid')) {
         dashboard.innerHTML = `
             <div class="header">
-                <h1 class="title">AI Learning Platform</h1>
+                <div class="cyber-badge">[SYS_DATALINK // TERMINAL_LINK // STATUS: OK]</div>
+                <h1 class="title glitch-text" data-text="AI Learning Platform">AI Learning Platform</h1>
                 <p class="subtitle">Master artificial intelligence concepts through structured learning and assessment</p>
             </div>
             
@@ -174,6 +181,12 @@ function restoreDashboard() {
                     <button class="card-btn">View History</button>
                 </div>
             </div>
+
+            <!-- Cyber Boot Console Logs -->
+            <div id="cyber-console" style="margin-top: 2.5rem; font-family: monospace; font-size: 0.85rem; background: rgba(0,0,0,0.6); border: 2px solid var(--primary); padding: 1.2rem; border-radius: 0; text-align: left; max-width: 550px; margin-left: auto; margin-right: auto; max-height: 150px; overflow: hidden; box-shadow: 0 0 15px rgba(139, 92, 246, 0.25);">
+                <div style="color: var(--secondary); margin-bottom: 0.5rem; font-weight: bold; font-family: monospace;">[LINKED TELEMETRY NODE DATA - ACTIVE]</div>
+                <div id="logs-body"></div>
+            </div>
             
             <div id="history-section" class="history-section hidden">
                 <h2>Assessment History</h2>
@@ -181,6 +194,7 @@ function restoreDashboard() {
                 <button class="back-btn" onclick="hideHistory()">Back to Dashboard</button>
             </div>
         `;
+        initBootConsole();
     }
 }
 
@@ -737,4 +751,104 @@ console.log('Functions exported to window:', {
     showDashboard: typeof window.showDashboard,
     showLearning: typeof window.showLearning,
     showHistory: typeof window.showHistory
-}); 
+});
+
+// WebCraft Interactive Theme Effects
+function initCursorBlob() {
+    const blob = document.createElement('div');
+    const primaryColor = getComputedStyle(document.body).getPropertyValue('--primary').trim() || '#8b5cf6';
+    blob.style.cssText = "position:fixed; width:200px; height:200px; background:radial-gradient(circle, " + primaryColor + "1a 0%, transparent 70%); pointer-events:none; z-index:9999; transform:translate(-50%, -50%); transition: left 0.1s ease-out, top 0.1s ease-out;";
+    document.body.appendChild(blob);
+    document.addEventListener('mousemove', (e) => {
+        blob.style.left = e.clientX + 'px';
+        blob.style.top = e.clientY + 'px';
+    });
+}
+
+function initCursorTrails() {
+    document.addEventListener('mousemove', (e) => {
+        if (Math.random() > 0.15) return;
+        const block = document.createElement('div');
+        const secondaryColor = getComputedStyle(document.body).getPropertyValue('--secondary').trim() || '#52f47b';
+        block.style.cssText = "position:fixed; left:" + e.clientX + "px; top:" + e.clientY + "px; width:16px; height:16px; background:" + secondaryColor + "; pointer-events:none; z-index:9998; border: 2px solid #000; transform: translate(-50%, -50%) rotate(" + (Math.random() * 360) + "deg); transition: all 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.28); opacity: 0.9;";
+        document.body.appendChild(block);
+        requestAnimationFrame(() => {
+            block.style.transform = "translate(-50%, -50%) scale(0) rotate(90deg)";
+            block.style.opacity = "0";
+        });
+        setTimeout(() => block.remove(), 600);
+    });
+}
+
+function initTechCanvas() {
+    const canvas = document.createElement('canvas');
+    canvas.id = 'tech-canvas';
+    canvas.style.cssText = "position:fixed; top:0; left:0; width:100vw; height:100vh; pointer-events:none; z-index:-1; opacity:0.18;";
+    document.body.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+    
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+    
+    window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    });
+    
+    const columns = Math.floor(width / 20) + 1;
+    const ypos = Array(columns).fill(0);
+    const primaryColor = getComputedStyle(document.body).getPropertyValue('--primary').trim() || '#8b5cf6';
+    
+    function update() {
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        ctx.fillRect(0, 0, width, height);
+        ctx.fillStyle = primaryColor;
+        ctx.font = '12px monospace';
+        
+        ypos.forEach((y, ind) => {
+            const text = Math.random() > 0.5 ? '1' : '0';
+            const x = ind * 20;
+            ctx.fillText(text, x, y);
+            if (y > 100 + Math.random() * 10000) ypos[ind] = 0;
+            else ypos[ind] = y + 15;
+        });
+        requestAnimationFrame(update);
+    }
+    update();
+}
+
+function initBootConsole() {
+    const body = document.getElementById('logs-body');
+    if (!body) return;
+    // Clear any existing logs first
+    body.innerHTML = '';
+    
+    const logs = [
+        "CONNECTING TO NETWORK SUBNET...",
+        "DECRYPTING SECURITY COEFFICIENTS: SUCCESS",
+        "SECURE DATA LINK BRIDGE ACTIVE.",
+        "RUNNING LIVE PIPELINE DIAGNOSTICS...",
+        "STABILIZING CORE GRID LOAD CHANNELS...",
+        "NODE SYSTEM PERFORMANCE STATUS: OPTIMAL.",
+        "INITIALIZING AI COMPILER ENGINE...",
+        "LOAD SYSTEM AGENT: SUCCESSFUL."
+    ];
+    let idx = 0;
+    function addLog() {
+        const currentBody = document.getElementById('logs-body');
+        if (!currentBody) return;
+        const d = document.createElement('div');
+        d.innerHTML = '> ' + logs[idx % logs.length];
+        d.style.color = 'var(--secondary)';
+        d.style.fontFamily = 'monospace';
+        d.style.fontSize = '0.75rem';
+        d.style.marginBottom = '0.2rem';
+        currentBody.appendChild(d);
+        idx++;
+        if (currentBody.children.length > 3) {
+            currentBody.removeChild(currentBody.firstChild);
+        }
+        setTimeout(addLog, 2500 + Math.random() * 2000);
+    }
+    addLog();
+} 

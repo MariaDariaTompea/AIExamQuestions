@@ -199,16 +199,16 @@ window.updatePerceptron = function() {
     const sum = (w1 * x1) + (w2 * x2) + b;
     const output = sum > 0 ? 1 : 0;
     
-    document.getElementById('perceptron-result').innerText = \`Output: \${output} (Sum: \${sum.toFixed(2)})\`;
+    document.getElementById('perceptron-result').innerText = `Output: ${output} (Sum: ${sum.toFixed(2)})`;
     
     // Cyberpunk glow effect based on output
     const resultBox = document.getElementById('perceptron-result');
     if (output === 1) {
-        resultBox.style.boxShadow = '0 0 10px #00ffff';
-        resultBox.style.color = '#00ffff';
+        resultBox.style.boxShadow = '0 0 10px #52f47b';
+        resultBox.style.color = '#52f47b';
     } else {
-        resultBox.style.boxShadow = '0 0 10px #ff003c';
-        resultBox.style.color = '#ff003c';
+        resultBox.style.boxShadow = '0 0 10px #8b5cf6';
+        resultBox.style.color = '#8b5cf6';
     }
 }
 
@@ -222,11 +222,11 @@ function renderMLChart() {
             datasets: [{
                 label: 'Class A',
                 data: [{x: -2, y: -1}, {x: -1, y: 0}, {x: -3, y: -2}],
-                backgroundColor: '#00ffff'
+                backgroundColor: '#52f47b'
             }, {
                 label: 'Class B',
                 data: [{x: 2, y: 1}, {x: 3, y: 2}, {x: 1, y: 3}],
-                backgroundColor: '#ff00ff'
+                backgroundColor: '#8b5cf6'
             }]
         },
         options: {
@@ -256,8 +256,8 @@ function renderActivationChart() {
         data: {
             labels: xValues,
             datasets: [
-                { label: 'Sigmoid', data: sigmoid, borderColor: '#00ffff', fill: false, tension: 0.4 },
-                { label: 'ReLU', data: relu, borderColor: '#ff00ff', fill: false, tension: 0.1 }
+                { label: 'Sigmoid', data: sigmoid, borderColor: '#52f47b', fill: false, tension: 0.4 },
+                { label: 'ReLU', data: relu, borderColor: '#8b5cf6', fill: false, tension: 0.1 }
             ]
         },
         options: {
@@ -283,9 +283,9 @@ function renderLossChart() {
             datasets: [{
                 label: 'Training Loss over Epochs',
                 data: loss,
-                borderColor: '#ff003c',
+                borderColor: '#8b5cf6',
                 fill: true,
-                backgroundColor: 'rgba(255, 0, 60, 0.2)',
+                backgroundColor: 'rgba(139, 92, 246, 0.2)',
                 tension: 0.4
             }]
         },
