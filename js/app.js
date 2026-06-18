@@ -12,6 +12,8 @@ let incorrectQuestions = [];
 let currentQuestions = [];
 let isReviewMode = false;
 let timerInterval = null;
+let currentLearningPage = 0;
+let activeTopicKey = 'neural-networks';
 
 // IP-based access control removed
 
@@ -336,8 +338,11 @@ function showTopicContent(topicKey, clickedTab = null) {
         clickedTab.classList.add('active');
     }
 
-    // Get content based on topic
-    const content = getTopicContentHTML(topicKey);
+    activeTopicKey = topicKey;
+    currentLearningPage = 0;
+
+    // Get content based on topic & page
+    const content = getTopicContentHTML(topicKey, currentLearningPage);
     DOMUtils.setHTML('learningContent', content);
 }
 
@@ -851,4 +856,84 @@ function initBootConsole() {
         setTimeout(addLog, 2500 + Math.random() * 2000);
     }
     addLog();
+}
+
+// Sub-page Glitch Transitions & Interactive Neuron Mapping
+window.changeLearningPage = function(pageIndex) {
+    const container = document.getElementById('learningContent');
+    if (!container) return;
+    
+    // Add glitch transition class
+    container.classList.add('glitch-transition');
+    
+    // Halfway through the glitch (200ms), swap the content
+    setTimeout(() => {
+        currentLearningPage = pageIndex;
+        const content = getTopicContentHTML(activeTopicKey, currentLearningPage);
+        DOMUtils.setHTML('learningContent', content);
+        
+        // If we transitioned to the biological neuron page, initialize the hover listeners
+        if (activeTopicKey === 'neural-networks' && currentLearningPage === 1) {
+            initNeuron3D();
+        }
+        
+        // Auto scroll to the top of the learning container
+        container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 200);
+    
+    // Remove glitch transition class after animation completes (400ms)
+    setTimeout(() => {
+        container.classList.remove('glitch-transition');
+    }, 400);
+}
+
+function initNeuron3D() {
+    const titleElem = document.getElementById('neuron-part-title');
+    const descElem = document.getElementById('neuron-part-desc');
+    if (!titleElem || !descElem) return;
+
+    const mappings = {
+        dendrites: {
+            title: "Dendrites ➔ Input Features (x1, x2, x3)",
+            desc: "In biology, <span class='active-part-highlight'>dendrites</span> receive chemical signals (neurotransmitters) from other neurons. In a Perceptron, these correspond to the <span class='active-part-highlight'>Input Features (x)</span> which represent the incoming data points or features."
+        },
+        soma: {
+            title: "Soma (Cell Body) ➔ Linear Summation (Σ)",
+            desc: "In biology, the <span class='active-part-highlight'>Soma</span> acts as an accumulator, adding up all the incoming chemical changes from the dendrites. In a Perceptron, this corresponds to the <span class='active-part-highlight'>Weighted Sum (w·x + b)</span> which aggregates all input signals multiplied by their weights, plus bias."
+        },
+        nucleus: {
+            title: "Nucleus ➔ Summation Core & Bias",
+            desc: "The <span class='active-part-highlight'>Nucleus</span> is the core of the soma. In a Perceptron, the summation core aggregates inputs and incorporates the <span class='active-part-highlight'>Bias (b)</span>, which adjusts the activation threshold of the neuron."
+        },
+        axon: {
+            title: "Axon ➔ Activation Function f(z)",
+            desc: "In biology, the <span class='active-part-highlight'>Axon</span> is a nerve fiber that transmits an electrical impulse (action potential) if the Soma's accumulated charge passes a certain threshold. In a Perceptron, this is represented by the <span class='active-part-highlight'>Activation Function</span> (e.g. Step or Sigmoid) which maps the sum to an output."
+        },
+        terminals: {
+            title: "Axon Terminals ➔ Binary Output (y)",
+            desc: "In biology, <span class='active-part-highlight'>Axon Terminals</span> transmit output signals to the dendrites of subsequent neurons. In a Perceptron, this corresponds to the final <span class='active-part-highlight'>Output (y)</span>, typically represented as binary values (0 or 1)."
+        }
+    };
+
+    // Find all hover elements in the 3D scene
+    const hoverElements = document.querySelectorAll('[data-label]');
+    hoverElements.forEach(elem => {
+        const label = elem.getAttribute('data-label');
+        if (mappings[label]) {
+            elem.addEventListener('mouseenter', () => {
+                titleElem.textContent = mappings[label].title;
+                descElem.innerHTML = mappings[label].desc;
+                
+                // Add temporary glowing outline by scale
+                elem.style.transform += " scale(1.05)";
+            });
+            elem.addEventListener('mouseleave', () => {
+                titleElem.textContent = "Hover over a neuron part above...";
+                descElem.innerHTML = "Hover over the 3D model components (Dendrites, Soma, Axon, etc.) to decrypt their biological and artificial mapping.";
+                
+                // Revert scale
+                elem.style.transform = elem.style.transform.replace(" scale(1.05)", "");
+            });
+        }
+    });
 } 

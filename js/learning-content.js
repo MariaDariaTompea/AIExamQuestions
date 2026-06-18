@@ -1,9 +1,67 @@
 // Enhanced Learning Content for AI Concepts
 
-function getTopicContentHTML(topicKey) {
+function getTopicContentHTML(topicKey, pageIndex = 0) {
     const topics = {
-        'neural-networks': `
+        'neural-networks': pageIndex === 1 ? `
             <div class="topic-card cyberpunk-card">
+                <div class="cyber-badge">[BIOLOGY_MAPPING // TERM_AI_CORE]</div>
+                <h2>Biological Neuron vs Perceptron</h2>
+                <p>Artificial neural networks draw direct inspiration from biological brain structures. In this interactive 3D model, hover over the biological components to decrypt how they map to artificial perceptron elements.</p>
+                
+                <div class="neuron-3d-container">
+                    <div class="neuron-3d-scene">
+                        <!-- Dendrites (Inputs) -->
+                        <div class="dendrite-branch d-1" data-label="dendrites">
+                            <span class="dendrite-tag">Dendrites (Inputs x1)</span>
+                            <div class="dendrite-line"></div>
+                        </div>
+                        <div class="dendrite-branch d-2" data-label="dendrites">
+                            <span class="dendrite-tag">Dendrites (Inputs x2)</span>
+                            <div class="dendrite-line"></div>
+                        </div>
+                        <div class="dendrite-branch d-3" data-label="dendrites">
+                            <span class="dendrite-tag">Dendrites (Inputs x3)</span>
+                            <div class="dendrite-line"></div>
+                        </div>
+                        
+                        <!-- Soma (Cell Body / Sum) -->
+                        <div class="soma-body" data-label="soma">
+                            <div class="soma-ring r-1"></div>
+                            <div class="soma-ring r-2"></div>
+                            <div class="soma-ring r-3"></div>
+                            <!-- Nucleus core -->
+                            <div class="nucleus-core" data-label="nucleus">Σ</div>
+                        </div>
+                        
+                        <!-- Axon (Activation Function) -->
+                        <div class="axon-branch" data-label="axon">
+                            <div class="axon-tube"></div>
+                            <div class="myelin-sheath ms-1"></div>
+                            <div class="myelin-sheath ms-2"></div>
+                            <div class="myelin-sheath ms-3"></div>
+                            <span class="axon-tag">Axon (Activation f)</span>
+                        </div>
+                        
+                        <!-- Axon Terminal (Output y) -->
+                        <div class="terminal-node" data-label="terminals">
+                            <span class="terminal-tag">Terminals (Output y)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hover Explanation Details -->
+                <div class="neuron-details-box">
+                    <h4 id="neuron-part-title">Hover over a neuron part above...</h4>
+                    <p id="neuron-part-desc">Hover over the 3D model components (Dendrites, Soma, Axon, etc.) to decrypt their biological and artificial mapping.</p>
+                </div>
+                
+                <div class="learning-actions" style="margin-top: 30px; display: flex; gap: 15px; justify-content: center;">
+                    <button class="back-btn" onclick="changeLearningPage(0)">← Back: Perceptron Basics</button>
+                </div>
+            </div>
+        ` : `
+            <div class="topic-card cyberpunk-card">
+                <div class="cyber-badge">[PERCEPTRON_BASICS // TERM_AI_CORE]</div>
                 <h2>Neural Networks & Perceptrons</h2>
                 
                 <h3>What is a Perceptron?</h3>
@@ -38,6 +96,10 @@ function getTopicContentHTML(topicKey) {
                     <label>w1: <input type="range" id="w1-slider" min="-1" max="1" step="0.1" value="0.5" oninput="updatePerceptron()"></label> <span id="w1-val">0.5</span><br>
                     <label>w2: <input type="range" id="w2-slider" min="-1" max="1" step="0.1" value="-0.3" oninput="updatePerceptron()"></label> <span id="w2-val">-0.3</span>
                     <div class="cyber-result" id="perceptron-result">Output: 1 (Sum: 0.6)</div>
+                </div>
+
+                <div class="learning-actions" style="margin-top: 30px;">
+                    <button class="submit-btn" onclick="changeLearningPage(1)">Next: Biological Mapping →</button>
                 </div>
             </div>
         `,
