@@ -746,16 +746,7 @@ window.saveUserNameAndStart = saveUserNameAndStart;
 window.validateNameInput = validateNameInput;
 window.changeLearningPage = changeLearningPage;
 
-// Initialize IP detection when page loads
-document.addEventListener('DOMContentLoaded', function() {
-    // Detect IP for access control
-    detectUserIP();
-    
-    // Also call update after a delay to catch elements that load later
-    setTimeout(() => {
-        updateUIBasedOnPermissions();
-    }, 2000);
-});
+
 
 // Debug: Test that functions are available
 console.log('Functions exported to window:', {
