@@ -305,15 +305,26 @@ function hideHistory() {
 // Learning Module Functions
 function initializeLearning() {
     const topics = [
-        { key: 'neural-networks', title: 'Neural Networks & Perceptrons' },
-        { key: 'machine-learning', title: 'Machine Learning Fundamentals' },
-        { key: 'regression-overfitting', title: 'Regression & Overfitting' },
-        { key: 'clustering', title: 'Clustering (K-Means)' },
-        { key: 'optimization', title: 'Optimization & Training' },
-        { key: 'decision-trees-evaluation', title: 'Decision Trees & Evaluation' },
-        { key: 'tensors-data', title: 'Tensors & Data' },
-        { key: 'deep-learning', title: 'Deep Learning & CNNs' },
-        { key: 'reinforcement-learning', title: 'Reinforcement Learning' }
+        { key: 'intro-ml', title: '1. Introduction to ML' },
+        { key: 'classification', title: '2. Classification' },
+        { key: 'regression', title: '3. Regression' },
+        { key: 'decision-trees', title: '4. Decision Trees' },
+        { key: 'model-evaluation', title: '5. Model Evaluation' },
+        { key: 'neural-networks', title: '6. Neural Networks' },
+        { key: 'activation-functions', title: '7. Activation Functions' },
+        { key: 'backpropagation', title: '8. Backpropagation' },
+        { key: 'deep-learning-problems', title: '9. Deep Learning Problems' },
+        { key: 'cnn', title: '10. CNNs' },
+        { key: 'tensors', title: '11. Tensors & Dimensions' },
+        { key: 'clustering', title: '12. Clustering (K-Means)' },
+        { key: 'preprocessing', title: '13. Preprocessing' },
+        { key: 'genetic-algorithms', title: '14. Genetic Algorithms' },
+        { key: 'pso', title: '15. PSO (Swarm)' },
+        { key: 'aco', title: '16. ACO (Ant Colony)' },
+        { key: 'fuzzy-logic', title: '17. Fuzzy Logic' },
+        { key: 'rule-based-systems', title: '18. Rule Systems' },
+        { key: 'search-strategies', title: '19. Search Strategies' },
+        { key: 'reinforcement-learning', title: '20. Reinforcement Learning' }
     ];
 
     const tabsContainer = document.getElementById('topicTabs');
@@ -931,42 +942,71 @@ function initNeuron3D() {
 function initLearningInteractive(topicKey, pageIndex) {
     console.log(`initLearningInteractive called for: ${topicKey}, page: ${pageIndex}`);
     
-    // Neural Networks
-    if (topicKey === 'neural-networks') {
-        if (pageIndex === 1) initNeuron3D();
-        if (pageIndex === 2) initActivationPlayground();
-    }
-    // Machine Learning Fundamentals
-    else if (topicKey === 'machine-learning') {
+    if (topicKey === 'intro-ml') {
         if (pageIndex === 0) initMLDemo();
-        if (pageIndex === 1) initClassificationDemo();
-        if (pageIndex === 2) initKNNDemo();
     }
-    // Regression & Overfitting
-    else if (topicKey === 'regression-overfitting') {
+    else if (topicKey === 'classification') {
+        if (pageIndex === 0) initClassificationDemo();
+        if (pageIndex === 1) initKNNDemo();
+    }
+    else if (topicKey === 'regression') {
         if (pageIndex === 0) initRegressionDemo();
-        if (pageIndex === 1) initPolyOverfitDemo();
     }
-    // Clustering
-    else if (topicKey === 'clustering') {
-        if (pageIndex === 0) initKMeansDemo();
+    else if (topicKey === 'decision-trees') {
+        if (pageIndex === 0) initDecisionTreeDemo();
     }
-    // Optimization
-    else if (topicKey === 'optimization') {
+    else if (topicKey === 'model-evaluation') {
+        if (pageIndex === 0) initConfusionMatrixDemo();
+        if (pageIndex === 1) initModelEvaluationDemo();
+    }
+    else if (topicKey === 'neural-networks') {
+        if (pageIndex === 0) {
+            setTimeout(window.updatePerceptron, 50);
+        }
+        if (pageIndex === 1) initNeuron3D();
+    }
+    else if (topicKey === 'activation-functions') {
+        if (pageIndex === 0) initActivationPlayground();
+    }
+    else if (topicKey === 'backpropagation') {
         if (pageIndex === 0) initGradientDescentDemo();
         if (pageIndex === 1) initLossSurface3D();
     }
-    // Decision Trees & Evaluation
-    else if (topicKey === 'decision-trees-evaluation') {
-        if (pageIndex === 0) initConfusionMatrixDemo();
+    else if (topicKey === 'deep-learning-problems') {
+        if (pageIndex === 0) initPolyOverfitDemo();
     }
-    // Reinforcement Learning
+    else if (topicKey === 'cnn') {
+        if (pageIndex === 0) initCNNFeedforward();
+    }
+    else if (topicKey === 'tensors') {
+        if (pageIndex === 0) initTensorDemo();
+    }
+    else if (topicKey === 'clustering') {
+        if (pageIndex === 0) initKMeansDemo();
+    }
+    else if (topicKey === 'preprocessing') {
+        if (pageIndex === 0) initPreprocessingDemo();
+    }
+    else if (topicKey === 'genetic-algorithms') {
+        if (pageIndex === 0) initGeneticDemo();
+    }
+    else if (topicKey === 'pso') {
+        if (pageIndex === 0) initPSODemo();
+    }
+    else if (topicKey === 'aco') {
+        if (pageIndex === 0) initACODemo();
+    }
+    else if (topicKey === 'fuzzy-logic') {
+        if (pageIndex === 0) initFuzzyDemo();
+    }
+    else if (topicKey === 'rule-based-systems') {
+        if (pageIndex === 0) initRuleSystemDemo();
+    }
+    else if (topicKey === 'search-strategies') {
+        if (pageIndex === 0) initSearchDemo();
+    }
     else if (topicKey === 'reinforcement-learning') {
         if (pageIndex === 0) initGridWorldDemo();
-    }
-    // Deep Learning & CNNs
-    else if (topicKey === 'deep-learning') {
-        if (pageIndex === 0) initCNNFeedforward();
     }
 }
 
@@ -2255,4 +2295,938 @@ function initCNNFeedforward() {
         }
         pulseNext();
     };
+}
+
+// 13. Decision Tree splits and Entropy calculations
+function initDecisionTreeDemo() {
+    const entSlider = document.getElementById('ent-slider');
+    const entPctVal = document.getElementById('ent-pct-val');
+    const entFormulaVal = document.getElementById('ent-formula-val');
+    const mixCanvas = document.getElementById('entropy-mix-canvas');
+    const curveCanvas = document.getElementById('entropy-curve-canvas');
+    
+    if (!entSlider) return;
+    
+    function drawEntropy() {
+        const pct = parseInt(entSlider.value);
+        const p = pct / 100;
+        entPctVal.textContent = `${pct}%`;
+        
+        let entropy = 0;
+        if (p > 0 && p < 1) {
+            entropy = -p * Math.log2(p) - (1-p) * Math.log2(1-p);
+        }
+        entFormulaVal.innerHTML = `Probability p = ${p.toFixed(2)} | Entropy H(p) = <strong>${entropy.toFixed(3)}</strong>`;
+        
+        if (mixCanvas) {
+            const ctx = mixCanvas.getContext('2d');
+            ctx.clearRect(0, 0, mixCanvas.width, mixCanvas.height);
+            const totalDots = 30;
+            const posDots = Math.round(totalDots * p);
+            for (let i = 0; i < totalDots; i++) {
+                const x = 20 + (i % 6) * 30;
+                const y = 20 + Math.floor(i / 6) * 25;
+                ctx.beginPath();
+                ctx.arc(x, y, 6, 0, Math.PI * 2);
+                ctx.fillStyle = i < posDots ? '#8b5cf6' : '#52f47b';
+                ctx.shadowBlur = 8;
+                ctx.shadowColor = ctx.fillStyle;
+                ctx.fill();
+                ctx.shadowBlur = 0;
+            }
+        }
+        
+        if (curveCanvas) {
+            const ctx = curveCanvas.getContext('2d');
+            ctx.clearRect(0, 0, curveCanvas.width, curveCanvas.height);
+            
+            ctx.strokeStyle = '#222';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(30, 10);
+            ctx.lineTo(30, 130);
+            ctx.lineTo(270, 130);
+            ctx.stroke();
+            
+            ctx.strokeStyle = '#8b5cf6';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            for (let px = 0; px <= 100; px += 2) {
+                const pVal = px / 100;
+                let hVal = 0;
+                if (pVal > 0 && pVal < 1) {
+                    hVal = -pVal * Math.log2(pVal) - (1-pVal) * Math.log2(1-pVal);
+                }
+                const screenX = 30 + pVal * 240;
+                const screenY = 130 - hVal * 100;
+                if (px === 0) ctx.moveTo(screenX, screenY);
+                else ctx.lineTo(screenX, screenY);
+            }
+            ctx.stroke();
+            
+            const curX = 30 + p * 240;
+            const curY = 130 - entropy * 100;
+            ctx.beginPath();
+            ctx.arc(curX, curY, 6, 0, Math.PI * 2);
+            ctx.fillStyle = '#52f47b';
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = '#52f47b';
+            ctx.fill();
+            ctx.shadowBlur = 0;
+        }
+    }
+    
+    entSlider.oninput = drawEntropy;
+    drawEntropy();
+    
+    const splitBtn = document.getElementById('dt-split-btn');
+    if (splitBtn) {
+        splitBtn.onclick = () => {
+            const feat = document.getElementById('dt-split-feat').value;
+            const thresh = parseFloat(document.getElementById('dt-split-thresh').value) || 0;
+            
+            const dataset = [
+                {Age: 20, Income: 30, Buy: 0},
+                {Age: 22, Income: 45, Buy: 0},
+                {Age: 25, Income: 25, Buy: 0},
+                {Age: 28, Income: 80, Buy: 1},
+                {Age: 32, Income: 55, Buy: 1},
+                {Age: 35, Income: 90, Buy: 1},
+                {Age: 40, Income: 40, Buy: 0},
+                {Age: 45, Income: 70, Buy: 1},
+                {Age: 50, Income: 35, Buy: 0},
+                {Age: 60, Income: 85, Buy: 1}
+            ];
+            
+            let left = [], right = [];
+            dataset.forEach(d => {
+                if (d[feat] <= thresh) left.push(d);
+                else right.push(d);
+            });
+            
+            function getEnt(arr) {
+                const n = arr.length;
+                if (n === 0) return 0;
+                const pos = arr.filter(d => d.Buy === 1).length;
+                const p = pos / n;
+                if (p === 0 || p === 1) return 0;
+                return -p * Math.log2(p) - (1-p) * Math.log2(1-p);
+            }
+            
+            const parentEnt = getEnt(dataset);
+            const leftEnt = getEnt(left);
+            const rightEnt = getEnt(right);
+            
+            const infoGain = parentEnt - (left.length/dataset.length*leftEnt + right.length/dataset.length*rightEnt);
+            
+            document.getElementById('dt-split-results').innerHTML = `
+                Parent: 10 samples (Entropy: ${parentEnt.toFixed(3)})<br>
+                Left Child (≤ ${thresh}): <strong>${left.length}</strong> samples (Entropy: ${leftEnt.toFixed(3)})<br>
+                Right Child (> ${thresh}): <strong>${right.length}</strong> samples (Entropy: ${rightEnt.toFixed(3)})<br>
+                Information Gain: <span style="color:var(--secondary); font-weight:bold;">${infoGain.toFixed(4)}</span>
+            `;
+            notificationManager.success('Split computed successfully!');
+        };
+    }
+}
+
+// 14. Model Evaluation metrics & ROC Curves
+function initModelEvaluationDemo() {
+    const slider = document.getElementById('me-threshold-slider');
+    if (!slider) return;
+    
+    function updateMetrics() {
+        const threshold = parseFloat(slider.value);
+        document.getElementById('me-threshold-val').textContent = threshold.toFixed(2);
+        
+        let tp = 0, fp = 0, fn = 0, tn = 0;
+        
+        for (let i = 0; i < 50; i++) {
+            const sickScore = 0.4 + (Math.sin(i * 1.5) + 1) * 0.275;
+            if (sickScore >= threshold) tp++;
+            else fn++;
+            
+            const healthyScore = 0.05 + (Math.cos(i * 1.5) + 1) * 0.275;
+            if (healthyScore >= threshold) fp++;
+            else tn++;
+        }
+        
+        const total = tp + fp + fn + tn;
+        const accuracy = (tp + tn) / total;
+        const precision = (tp + fp) > 0 ? tp / (tp + fp) : 0;
+        const recall = (tp + fn) > 0 ? tp / (tp + fn) : 0;
+        const f1 = (precision + recall) > 0 ? 2 * (precision * recall) / (precision + recall) : 0;
+        
+        document.getElementById('me-tp-val').textContent = tp;
+        document.getElementById('me-fp-val').textContent = fp;
+        document.getElementById('me-fn-val').textContent = fn;
+        document.getElementById('me-tn-val').textContent = tn;
+        
+        document.getElementById('me-acc-disp').textContent = `${(accuracy * 100).toFixed(1)}%`;
+        document.getElementById('me-prec-disp').textContent = `${(precision * 100).toFixed(1)}%`;
+        document.getElementById('me-rec-disp').textContent = `${(recall * 100).toFixed(1)}%`;
+        document.getElementById('me-f1-disp').textContent = f1.toFixed(3);
+        
+        document.getElementById('cell-tp').style.background = `rgba(82, 244, 123, ${Math.min(tp / 50, 0.6)})`;
+        document.getElementById('cell-tn').style.background = `rgba(82, 244, 123, ${Math.min(tn / 50, 0.6)})`;
+        document.getElementById('cell-fp').style.background = `rgba(139, 92, 246, ${Math.min(fp / 50, 0.6)})`;
+        document.getElementById('cell-fn').style.background = `rgba(139, 92, 246, ${Math.min(fn / 50, 0.6)})`;
+        
+        const canvas = document.getElementById('roc-canvas');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.strokeStyle = '#222';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(25, 15);
+            ctx.lineTo(25, 195);
+            ctx.lineTo(205, 195);
+            ctx.stroke();
+            
+            ctx.fillStyle = '#666';
+            ctx.font = '8px monospace';
+            ctx.fillText('1.0', 8, 20);
+            ctx.fillText('1.0', 198, 205);
+            ctx.fillText('TPR', 10, 10);
+            ctx.fillText('FPR', 185, 190);
+            
+            ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+            ctx.setLineDash([2, 2]);
+            ctx.beginPath();
+            ctx.moveTo(25, 195);
+            ctx.lineTo(205, 15);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            
+            const pathPoints = [];
+            for (let t = 0.0; t <= 1.0; t += 0.05) {
+                let tempTp = 0, tempFp = 0, tempFn = 0, tempTn = 0;
+                for (let i = 0; i < 50; i++) {
+                    const sScore = 0.4 + (Math.sin(i * 1.5) + 1) * 0.275;
+                    if (sScore >= t) tempTp++; else tempFn++;
+                    const hScore = 0.05 + (Math.cos(i * 1.5) + 1) * 0.275;
+                    if (hScore >= t) tempFp++; else tempTn++;
+                }
+                const tpr = tempTp / 50;
+                const fpr = tempFp / 50;
+                pathPoints.push({x: 25 + fpr * 180, y: 195 - tpr * 180});
+            }
+            
+            ctx.strokeStyle = '#8b5cf6';
+            ctx.lineWidth = 2.5;
+            ctx.beginPath();
+            ctx.moveTo(205, 15);
+            pathPoints.sort((a,b) => b.x - a.x);
+            pathPoints.forEach((p) => {
+                ctx.lineTo(p.x, p.y);
+            });
+            ctx.lineTo(25, 195);
+            ctx.stroke();
+            
+            const curFpr = fp / 50;
+            const curTpr = tp / 50;
+            const screenX = 25 + curFpr * 180;
+            const screenY = 195 - curTpr * 180;
+            
+            ctx.beginPath();
+            ctx.arc(screenX, screenY, 6, 0, Math.PI * 2);
+            ctx.fillStyle = '#52f47b';
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = '#52f47b';
+            ctx.fill();
+            ctx.shadowBlur = 0;
+        }
+    }
+    
+    slider.oninput = updateMetrics;
+    updateMetrics();
+}
+
+// 15. Tensor Rank visual updates
+function initTensorDemo() {
+    const slider = document.getElementById('tensor-rank-slider');
+    if (!slider) return;
+    
+    const rankTag = document.getElementById('tensor-rank-tag');
+    const rankDesc = document.getElementById('tensor-rank-desc');
+    const wrapper = document.getElementById('tensor-visual-wrapper');
+    
+    function update() {
+        const rank = parseInt(slider.value);
+        if (rank === 0) {
+            rankTag.textContent = '0D Scalar (Rank 0)';
+            rankDesc.textContent = 'A single numerical value with zero axes. Example: X = 5. Used for hyperparameter scalars.';
+            wrapper.innerHTML = '<div class="cyber-result" style="font-size:2.5rem; font-family:monospace; padding:20px; font-weight:bold; box-shadow:0 0 15px var(--secondary); color:var(--secondary);">5</div>';
+        } else if (rank === 1) {
+            rankTag.textContent = '1D Vector (Rank 1)';
+            rankDesc.textContent = 'A single-axis array. Example: X = [1.2, -0.4, 3.1]. Used to represent single feature samples.';
+            wrapper.innerHTML = '<div class="cyber-result" style="font-size:1.3rem; font-family:monospace; padding:15px; border: 1px solid var(--border);">[ 1.2, -0.4, 3.1, 0.8, -2.5 ]</div>';
+        } else if (rank === 2) {
+            rankTag.textContent = '2D Matrix (Rank 2)';
+            rankDesc.textContent = 'A double-axis grid table (Rows × Columns). Used to represent batched features or weights layers.';
+            wrapper.innerHTML = `
+                <div class="cyber-result" style="font-family:monospace; font-size:0.9rem; padding:15px; border: 1px solid var(--border); line-height:1.4;">
+                    [ [ 1.0,  0.5, -0.2 ],<br>
+                    &nbsp;&nbsp;[ 0.0, -1.2,  0.8 ],<br>
+                    &nbsp;&nbsp;[ 2.5,  0.3, -1.1 ] ]
+                </div>
+            `;
+        } else if (rank === 3) {
+            rankTag.textContent = '3D Tensor (Rank 3)';
+            rankDesc.textContent = 'A multi-channel matrix stack (Channels × Rows × Columns). Example: RGB images. Rotates in 3D.';
+            wrapper.innerHTML = `
+                <div class="tensor-container">
+                    <div class="cube-wrapper">
+                        <div class="cube">
+                            <div class="cube-face front">3D Tensor</div>
+                            <div class="cube-face back">Depth</div>
+                            <div class="cube-face right">Width</div>
+                            <div class="cube-face left">Height</div>
+                            <div class="cube-face top">Matrix Array</div>
+                            <div class="cube-face bottom">Channels</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+    }
+    slider.oninput = update;
+    update();
+}
+
+// 16. Preprocessing scale visualizer
+function initPreprocessingDemo() {
+    const canvas = document.getElementById('pre-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    
+    let baseData = [
+        {x: 1200, y: 1.5},
+        {x: 2000, y: 2.2},
+        {x: 1800, y: 3.8},
+        {x: 3500, y: 1.1},
+        {x: 4200, y: 4.5},
+        {x: 2800, y: 2.8},
+        {x: 3100, y: 3.1},
+        {x: 4800, y: 4.8},
+        {x: 1500, y: 1.2},
+        {x: 2200, y: 3.5}
+    ];
+    let currentData = JSON.parse(JSON.stringify(baseData));
+    let mode = 'raw';
+    
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        ctx.strokeStyle = '#222';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(35, 10); ctx.lineTo(35, 215); ctx.lineTo(335, 215);
+        ctx.stroke();
+        
+        let minX = 0, maxX = 6000, minY = 0, maxY = 6;
+        if (mode === 'standard') {
+            minX = -2.5; maxX = 2.5; minY = -2.5; maxY = 2.5;
+        } else if (mode === 'normal') {
+            minX = -0.2; maxX = 1.2; minY = -0.2; maxY = 1.2;
+        }
+        
+        function toScreen(x, y) {
+            const sx = 35 + ((x - minX) / (maxX - minX)) * 280;
+            const sy = 215 - ((y - minY) / (maxY - minY)) * 190;
+            return {x: sx, y: sy};
+        }
+        
+        currentData.forEach(p => {
+            const s = toScreen(p.x, p.y);
+            ctx.beginPath();
+            ctx.arc(s.x, s.y, 6, 0, Math.PI * 2);
+            ctx.fillStyle = '#52f47b';
+            ctx.shadowBlur = 8;
+            ctx.shadowColor = '#52f47b';
+            ctx.fill();
+            ctx.shadowBlur = 0;
+        });
+    }
+    
+    document.getElementById('pre-standardize-btn').onclick = () => {
+        mode = 'standard';
+        let sumX = 0, sumY = 0;
+        baseData.forEach(p => { sumX += p.x; sumY += p.y; });
+        const meanX = sumX / baseData.length;
+        const meanY = sumY / baseData.length;
+        
+        let varX = 0, varY = 0;
+        baseData.forEach(p => {
+            varX += (p.x - meanX) ** 2;
+            varY += (p.y - meanY) ** 2;
+        });
+        const stdX = Math.sqrt(varX / baseData.length);
+        const stdY = Math.sqrt(varY / baseData.length);
+        
+        currentData = baseData.map(p => ({
+            x: (p.x - meanX) / stdX,
+            y: (p.y - meanY) / stdY
+        }));
+        document.getElementById('pre-stats-display').innerHTML = `
+            Standardized (Z-Score) <br> Mean = 0.00 | StdDev = 1.00
+        `;
+        draw();
+    };
+    
+    document.getElementById('pre-normalize-btn').onclick = () => {
+        mode = 'normal';
+        const xs = baseData.map(p => p.x);
+        const ys = baseData.map(p => p.y);
+        const minX = Math.min(...xs), maxX = Math.max(...xs);
+        const minY = Math.min(...ys), maxY = Math.max(...ys);
+        
+        currentData = baseData.map(p => ({
+            x: (p.x - minX) / (maxX - minX),
+            y: (p.y - minY) / (maxY - minY)
+        }));
+        document.getElementById('pre-stats-display').innerHTML = `
+            Normalized (Min-Max) <br> Bounds: X ∈ [0, 1], Y ∈ [0, 1]
+        `;
+        draw();
+    };
+    
+    document.getElementById('pre-reset-btn').onclick = () => {
+        mode = 'raw';
+        currentData = JSON.parse(JSON.stringify(baseData));
+        document.getElementById('pre-stats-display').innerHTML = `
+            Raw - X Range: [1000, 5000], Y Range: [1, 5]
+        `;
+        draw();
+    };
+    
+    draw();
+}
+
+// 17. Genetic Algorithm chromosome evolution
+function initGeneticDemo() {
+    const popContainer = document.getElementById('ga-population');
+    if (!popContainer) return;
+    
+    let population = [
+        '10001100',
+        '00101010',
+        '11000100',
+        '01010101',
+        '00001111',
+        '11110000'
+    ];
+    let generation = 0;
+    
+    function getFitness(chrom) {
+        return (chrom.match(/1/g) || []).length;
+    }
+    
+    function draw() {
+        popContainer.innerHTML = '';
+        let sumFit = 0;
+        
+        population.forEach((chrom, idx) => {
+            const fit = getFitness(chrom);
+            sumFit += fit;
+            
+            const row = document.createElement('div');
+            row.style.cssText = 'display:flex; justify-content:space-between; border:1px solid var(--border); padding:5px; background:rgba(0,0,0,0.2);';
+            row.innerHTML = `
+                <span>Indiv ${idx+1}: <span style="color:var(--secondary); font-family:monospace;">${chrom}</span></span>
+                <span>Fit: ${fit}</span>
+            `;
+            popContainer.appendChild(row);
+        });
+        
+        const avg = sumFit / population.length;
+        document.getElementById('ga-info-display').innerHTML = `
+            Gen: <strong>${generation}</strong> | Avg Fitness: <strong>${avg.toFixed(1)}</strong> / 8
+        `;
+    }
+    
+    document.getElementById('ga-step-btn').onclick = () => {
+        generation++;
+        
+        const selected = [];
+        for (let i = 0; i < population.length; i++) {
+            const idx1 = Math.floor(Math.random() * population.length);
+            const idx2 = Math.floor(Math.random() * population.length);
+            const chosen = getFitness(population[idx1]) >= getFitness(population[idx2]) ? population[idx1] : population[idx2];
+            selected.push(chosen);
+        }
+        
+        const nextPop = [];
+        for (let i = 0; i < selected.length; i += 2) {
+            const parent1 = selected[i];
+            const parent2 = selected[i+1] || selected[0];
+            
+            const split = 4;
+            const child1 = parent1.substring(0, split) + parent2.substring(split);
+            const child2 = parent2.substring(0, split) + parent1.substring(split);
+            nextPop.push(child1);
+            nextPop.push(child2);
+        }
+        
+        population = nextPop.map(chrom => {
+            let chars = chrom.split('');
+            if (Math.random() < 0.25) {
+                const flipIdx = Math.floor(Math.random() * 8);
+                chars[flipIdx] = chars[flipIdx] === '1' ? '0' : '1';
+            }
+            return chars.join('');
+        });
+        
+        notificationManager.success('Gen advanced! Selection, Crossover & Mutation run.');
+        draw();
+    };
+    
+    document.getElementById('ga-reset-btn').onclick = () => {
+        generation = 0;
+        population = [
+            '10001100',
+            '00101010',
+            '11000100',
+            '01010101',
+            '00001111',
+            '11110000'
+        ];
+        draw();
+    };
+    
+    draw();
+}
+
+// 18. Particle Swarm Optimization
+function initPSODemo() {
+    const canvas = document.getElementById('pso-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    
+    let particles = [];
+    const target = {x: 175, y: 125};
+    let gBest = null;
+    let iteration = 0;
+    
+    function initSwarm() {
+        particles = [];
+        gBest = null;
+        iteration = 0;
+        
+        for (let i = 0; i < 15; i++) {
+            const p = {
+                x: 20 + Math.random() * (canvas.width - 40),
+                y: 20 + Math.random() * (canvas.height - 40),
+                vx: (Math.random() - 0.5) * 5,
+                vy: (Math.random() - 0.5) * 5
+            };
+            p.pBestX = p.x;
+            p.pBestY = p.y;
+            p.bestScore = Math.hypot(p.x - target.x, p.y - target.y);
+            particles.push(p);
+        }
+        updateGBest();
+        draw();
+    }
+    
+    function updateGBest() {
+        particles.forEach(p => {
+            const score = Math.hypot(p.x - target.x, p.y - target.y);
+            if (score < p.bestScore) {
+                p.bestScore = score;
+                p.pBestX = p.x;
+                p.pBestY = p.y;
+            }
+            if (!gBest || score < Math.hypot(gBest.x - target.x, gBest.y - target.y)) {
+                gBest = {x: p.x, y: p.y};
+            }
+        });
+    }
+    
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        ctx.strokeStyle = '#222';
+        ctx.lineWidth = 1.5;
+        for (let r = 30; r < 200; r += 30) {
+            ctx.beginPath();
+            ctx.arc(target.x, target.y, r, 0, Math.PI * 2);
+            ctx.stroke();
+        }
+        
+        ctx.fillStyle = '#8b5cf6';
+        ctx.beginPath();
+        ctx.arc(target.x, target.y, 8, 0, Math.PI * 2);
+        ctx.fill();
+        
+        particles.forEach(p => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 4, 0, Math.PI * 2);
+            ctx.fillStyle = '#52f47b';
+            ctx.shadowBlur = 6;
+            ctx.shadowColor = '#52f47b';
+            ctx.fill();
+            ctx.shadowBlur = 0;
+        });
+        
+        document.getElementById('pso-status-msg').innerHTML = `
+            Iteration: <strong>${iteration}</strong> | Global Best Dist: <strong>${Math.hypot(gBest.x - target.x, gBest.y - target.y).toFixed(1)}px</strong>
+        `;
+    }
+    
+    document.getElementById('pso-step-btn').onclick = () => {
+        iteration++;
+        const w = 0.5;
+        const c1 = 1.5;
+        const c2 = 1.5;
+        
+        particles.forEach(p => {
+            const r1 = Math.random();
+            const r2 = Math.random();
+            
+            p.vx = w * p.vx + c1 * r1 * (p.pBestX - p.x) + c2 * r2 * (gBest.x - p.x);
+            p.vy = w * p.vy + c1 * r1 * (p.pBestY - p.y) + c2 * r2 * (gBest.y - p.y);
+            
+            p.x = Math.max(10, Math.min(canvas.width - 10, p.x + p.vx));
+            p.y = Math.max(10, Math.min(canvas.height - 10, p.y + p.vy));
+        });
+        
+        updateGBest();
+        draw();
+    };
+    
+    document.getElementById('pso-reset-btn').onclick = initSwarm;
+    initSwarm();
+}
+
+// 19. Ant Colony Optimization
+function initACODemo() {
+    const canvas = document.getElementById('aco-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    
+    const startNode = {x: 50, y: 125};
+    const endNode = {x: 300, y: 125};
+    
+    let pheromoneShort = 1.0;
+    let pheromoneLong = 1.0;
+    let iteration = 0;
+    
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Draw Long Path (top arc) — purple
+        ctx.beginPath();
+        ctx.moveTo(startNode.x, startNode.y);
+        ctx.quadraticCurveTo(175, 20, endNode.x, endNode.y);
+        ctx.strokeStyle = `rgba(139, 92, 246, ${Math.min(0.15 + pheromoneLong * 0.1, 0.9)})`;
+        ctx.lineWidth = 2 + pheromoneLong * 1.5;
+        ctx.setLineDash([6, 4]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        
+        // Draw Short Path (straight) — green
+        ctx.beginPath();
+        ctx.moveTo(startNode.x, startNode.y);
+        ctx.lineTo(endNode.x, endNode.y);
+        ctx.strokeStyle = `rgba(82, 244, 123, ${Math.min(0.15 + pheromoneShort * 0.1, 0.9)})`;
+        ctx.lineWidth = 2 + pheromoneShort * 1.5;
+        ctx.stroke();
+        
+        // Path labels
+        ctx.font = '11px monospace';
+        ctx.fillStyle = '#8b5cf6';
+        ctx.fillText('Long Path (distance: 350)', 115, 45);
+        ctx.fillStyle = '#52f47b';
+        ctx.fillText('Short Path (distance: 250)', 110, 115);
+        
+        // Draw nodes
+        ctx.fillStyle = '#8b5cf6';
+        ctx.beginPath(); ctx.arc(startNode.x, startNode.y, 10, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = '#52f47b';
+        ctx.beginPath(); ctx.arc(endNode.x, endNode.y, 10, 0, Math.PI * 2); ctx.fill();
+        
+        // Node labels
+        ctx.font = 'bold 12px monospace';
+        ctx.fillStyle = '#fff';
+        ctx.textAlign = 'center';
+        ctx.fillText('🏠 Nest', startNode.x, startNode.y + 24);
+        ctx.fillText('🍎 Food', endNode.x, endNode.y + 24);
+        ctx.textAlign = 'left';
+        
+        document.getElementById('aco-status-msg').innerHTML = `
+            Step: <strong>${iteration}</strong> | Pheromone Short: <strong>${pheromoneShort.toFixed(1)}</strong> | Long: <strong>${pheromoneLong.toFixed(1)}</strong>
+        `;
+    }
+    
+    document.getElementById('aco-step-btn').onclick = () => {
+        iteration++;
+        
+        pheromoneShort *= 0.8;
+        pheromoneLong *= 0.8;
+        
+        const totalP = pheromoneShort + pheromoneLong;
+        const probShort = pheromoneShort / totalP;
+        
+        for (let i = 0; i < 10; i++) {
+            if (Math.random() < probShort) {
+                pheromoneShort += 0.5;
+            } else {
+                pheromoneLong += 0.25;
+            }
+        }
+        
+        draw();
+    };
+    
+    document.getElementById('aco-reset-btn').onclick = () => {
+        iteration = 0;
+        pheromoneShort = 1.0;
+        pheromoneLong = 1.0;
+        draw();
+    };
+    
+    draw();
+}
+
+// 20. Fuzzy Logic membership visualizer
+function initFuzzyDemo() {
+    const canvas = document.getElementById('fuzzy-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const slider = document.getElementById('fuzzy-age-slider');
+    
+    function getMembership(age) {
+        let young = 0;
+        if (age <= 25) young = 1;
+        else if (age > 25 && age < 45) young = (45 - age) / 20;
+        
+        let adult = 0;
+        if (age > 30 && age <= 50) adult = (age - 30) / 20;
+        else if (age > 50 && age < 70) adult = (70 - age) / 20;
+        
+        let old = 0;
+        if (age >= 75) old = 1;
+        else if (age > 55 && age < 75) old = (age - 55) / 20;
+        
+        return {young, adult, old};
+    }
+    
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        ctx.strokeStyle = '#8b5cf6'; ctx.lineWidth = 2; ctx.beginPath();
+        ctx.moveTo(25, 30); ctx.lineTo(25 + 25*2.8, 30); ctx.lineTo(25 + 45*2.8, 150);
+        ctx.stroke();
+        
+        ctx.strokeStyle = '#52f47b'; ctx.beginPath();
+        ctx.moveTo(25 + 30*2.8, 150); ctx.lineTo(25 + 50*2.8, 30); ctx.lineTo(25 + 70*2.8, 150);
+        ctx.stroke();
+        
+        ctx.strokeStyle = '#f59e0b'; ctx.beginPath();
+        ctx.moveTo(25 + 55*2.8, 150); ctx.lineTo(25 + 75*2.8, 30); ctx.lineTo(25 + 100*2.8, 30);
+        ctx.stroke();
+        
+        ctx.strokeStyle = '#333'; ctx.lineWidth = 1.5; ctx.beginPath();
+        ctx.moveTo(25, 15); ctx.lineTo(25, 150); ctx.lineTo(325, 150);
+        ctx.stroke();
+        
+        const age = parseInt(slider.value);
+        document.getElementById('fuzzy-age-val').textContent = age;
+        
+        const m = getMembership(age);
+        const screenX = 25 + age * 2.8;
+        
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+        ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(screenX, 15); ctx.lineTo(screenX, 150); ctx.stroke();
+        
+        const yYoung = 150 - m.young * 120;
+        const yAdult = 150 - m.adult * 120;
+        const yOld = 150 - m.old * 120;
+        
+        if (m.young > 0) { ctx.beginPath(); ctx.arc(screenX, yYoung, 4, 0, Math.PI*2); ctx.fillStyle='#8b5cf6'; ctx.fill(); }
+        if (m.adult > 0) { ctx.beginPath(); ctx.arc(screenX, yAdult, 4, 0, Math.PI*2); ctx.fillStyle='#52f47b'; ctx.fill(); }
+        if (m.old > 0) { ctx.beginPath(); ctx.arc(screenX, yOld, 4, 0, Math.PI*2); ctx.fillStyle='#f59e0b'; ctx.fill(); }
+        
+        document.getElementById('fuzzy-outputs-display').innerHTML = `
+            Fuzzy Set Membership Values for Age <strong>${age}</strong>:<br>
+            <span style="color:#8b5cf6;">Young: ${m.young.toFixed(2)}</span> | 
+            <span style="color:#52f47b;">Adult: ${m.adult.toFixed(2)}</span> | 
+            <span style="color:#f59e0b;">Old: ${m.old.toFixed(2)}</span>
+        `;
+    }
+    
+    slider.oninput = draw;
+    draw();
+}
+
+// 21. Forward Chaining Rule System
+function initRuleSystemDemo() {
+    let facts = ['A', 'B'];
+    let rules = [
+        {id: 'R1', cond: ['A', 'B'], out: 'C'},
+        {id: 'R2', cond: ['C'], out: 'D'}
+    ];
+    
+    function draw() {
+        document.getElementById('rule-facts-box').innerHTML = facts.join(', ');
+        
+        let ruleHtml = '';
+        rules.forEach(r => {
+            const met = r.cond.every(c => facts.includes(c));
+            const color = facts.includes(r.out) ? 'var(--secondary)' : met ? '#ffb703' : '#666';
+            ruleHtml += `<span style="color:${color}">${r.id}: ${r.cond.join(' & ')} → ${r.out}</span><br>`;
+        });
+        document.getElementById('rule-rules-box').innerHTML = ruleHtml;
+    }
+    
+    document.getElementById('rule-chain-btn').onclick = () => {
+        let triggered = false;
+        for (let i = 0; i < rules.length; i++) {
+            const r = rules[i];
+            const condMet = r.cond.every(c => facts.includes(c));
+            if (condMet && !facts.includes(r.out)) {
+                facts.push(r.out);
+                document.getElementById('rule-log-display').innerHTML = `
+                    Rule <strong style="color:var(--secondary);">${r.id}</strong> triggered! Inferred fact <strong style="color:var(--secondary);">${r.out}</strong>.
+                `;
+                triggered = true;
+                break;
+            }
+        }
+        
+        if (!triggered) {
+            document.getElementById('rule-log-display').textContent = 'No more rules can be triggered. Fact base saturated!';
+        }
+        draw();
+    };
+    
+    document.getElementById('rule-reset-btn').onclick = () => {
+        facts = ['A', 'B'];
+        document.getElementById('rule-log-display').textContent = 'Facts reset to initial values [A, B].';
+        draw();
+    };
+    
+    draw();
+}
+
+// 22. DFS/BFS Search Strategies
+function initSearchDemo() {
+    const canvas = document.getElementById('search-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    
+    const size = 5;
+    const cellSize = 50;
+    
+    const grid = [
+        [0, 0, 0, 0, 0],
+        [1, 1, 0, 1, 0],
+        [0, 0, 0, 0, 0],
+        [0, 1, 1, 1, 0],
+        [0, 0, 0, 0, 0]
+    ];
+    
+    const start = {r: 0, c: 0};
+    const target = {r: 4, c: 4};
+    
+    let visited = [];
+    let searchInterval = null;
+    
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        for (let r = 0; r < size; r++) {
+            for (let c = 0; c < size; c++) {
+                ctx.strokeStyle = '#222';
+                ctx.strokeRect(c * cellSize, r * cellSize, cellSize, cellSize);
+                
+                if (grid[r][c] === 1) {
+                    ctx.fillStyle = 'rgba(139, 92, 246, 0.35)';
+                    ctx.fillRect(c * cellSize + 2, r * cellSize + 2, cellSize - 4, cellSize - 4);
+                } else if (visited.some(v => v.r === r && v.c === c)) {
+                    ctx.fillStyle = 'rgba(82, 244, 123, 0.4)';
+                    ctx.fillRect(c * cellSize + 2, r * cellSize + 2, cellSize - 4, cellSize - 4);
+                }
+                
+                if (r === start.r && c === start.c) {
+                    ctx.fillStyle = '#52f47b';
+                    ctx.font = 'bold 12px monospace';
+                    ctx.fillText('S', c * cellSize + 20, r * cellSize + 30);
+                } else if (r === target.r && c === target.c) {
+                    ctx.fillStyle = '#8b5cf6';
+                    ctx.font = 'bold 12px monospace';
+                    ctx.fillText('G', c * cellSize + 20, r * cellSize + 30);
+                }
+            }
+        }
+    }
+    
+    function runSearch() {
+        if (searchInterval) clearInterval(searchInterval);
+        visited = [];
+        
+        const type = document.getElementById('search-type-select').value;
+        let frontier = [ {r: start.r, c: start.c} ];
+        
+        searchInterval = setInterval(() => {
+            if (frontier.length === 0) {
+                clearInterval(searchInterval);
+                document.getElementById('search-info-display').textContent = 'Search Saturation: Target unreachable!';
+                return;
+            }
+            
+            let current;
+            if (type === 'bfs') {
+                current = frontier.shift();
+            } else {
+                current = frontier.pop();
+            }
+            
+            if (!visited.some(v => v.r === current.r && v.c === current.c)) {
+                visited.push({r: current.r, c: current.c});
+            }
+            
+            draw();
+            
+            if (current.r === target.r && current.c === target.c) {
+                clearInterval(searchInterval);
+                document.getElementById('search-info-display').innerHTML = `
+                    Target found! Visited cells count: <strong style="color:var(--secondary);">${visited.length}</strong>
+                `;
+                notificationManager.success('Search target reached!');
+                return;
+            }
+            
+            const dirs = [ {dr: 1, dc: 0}, {dr: 0, dc: 1}, {dr: -1, dc: 0}, {dr: 0, dc: -1} ];
+            dirs.forEach(d => {
+                const nr = current.r + d.dr;
+                const nc = current.c + d.dc;
+                
+                if (nr >= 0 && nr < size && nc >= 0 && nc < size && grid[nr][nc] === 0) {
+                    if (!visited.some(v => v.r === nr && v.c === nc) && !frontier.some(f => f.r === nr && f.c === nc)) {
+                        frontier.push({r: nr, c: nc});
+                    }
+                }
+            });
+            
+            document.getElementById('search-info-display').textContent = `
+                Active frontier count: ${frontier.length} cells
+            `;
+            
+        }, 350);
+    }
+    
+    document.getElementById('search-animate-btn').onclick = runSearch;
+    document.getElementById('search-reset-btn').onclick = () => {
+        if (searchInterval) clearInterval(searchInterval);
+        visited = [];
+        document.getElementById('search-info-display').textContent = 'Grid maze initialized. Press Run.';
+        draw();
+    };
+    
+    draw();
 } 

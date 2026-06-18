@@ -296,11 +296,27 @@ body::before {
 .topic-tabs {
     display: flex;
     gap: 8px;
-    flex-wrap: wrap;
-    justify-content: center;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    justify-content: flex-start;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) rgba(10, 8, 15, 0.6);
+}
+
+.topic-tabs::-webkit-scrollbar {
+    height: 4px;
+}
+
+.topic-tabs::-webkit-scrollbar-track {
+    background: rgba(10, 8, 15, 0.6);
+}
+
+.topic-tabs::-webkit-scrollbar-thumb {
+    background: var(--primary);
 }
 
 .topic-tab {
+    flex-shrink: 0;
     background: #050505;
     border: 1px solid #333333;
     border-radius: 8px;
@@ -1876,7 +1892,6 @@ h1, h2, h3, h4 {
 /* Cyber cutout card styles */
 .dashboard-card,
 .stat-card,
-.topic-card,
 .result-card,
 .score-item,
 .overall-score-card,
@@ -1890,9 +1905,16 @@ h1, h2, h3, h4 {
     box-shadow: var(--shadow) !important;
 }
 
+.topic-card {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
 .dashboard-card::after,
 .stat-card::after,
-.topic-card::after,
 .result-card::after,
 .score-item::after,
 .overall-score-card::after,
@@ -2708,11 +2730,11 @@ h1, h2, h3, h4 {
     transition: all 0.3s ease;
 }
 
-.cnn-node-box.active-pulse {
-    border-color: var(--secondary);
-    background: rgba(82, 244, 123, 0.2);
-    box-shadow: 0 0 15px var(--secondary);
-    color: var(--secondary);
+.cnn-node-box.active-pulse, .network-node.active-pulse {
+    border-color: var(--secondary) !important;
+    background: rgba(82, 244, 123, 0.2) !important;
+    box-shadow: 0 0 15px var(--secondary) !important;
+    color: var(--secondary) !important;
 }
 
 /* Footer Credits Layout */
